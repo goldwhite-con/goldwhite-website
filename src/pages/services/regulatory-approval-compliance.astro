@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Regulatory Approval & Compliance | GoldWhite Consulting"
+  description="CE marking and FDA clearance strategy for healthtech, medtech, and diagnostics startups. Regulatory pathway planning integrated with your commercial and fundraising strategy."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
+    <div style="position:absolute;top:-40%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:780px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        05 — Regulatory Approval &amp; Compliance
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:28px;">
+        Regulatory approval is not a compliance checkbox. It is a strategic milestone.
+      </h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px;">
+        We have direct experience of CE marking and FDA clearance, and we help you approach the regulatory pathway as an integrated part of your commercial strategy, not a siloed workstream.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ THE CHALLENGE ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">The Challenge</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">When regulatory planning sits outside the commercial conversation</h2>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;">In regulated healthcare markets, leaving regulatory planning too late, or treating it as a separate technical workstream, has serious commercial consequences. It affects your fundraising timeline, your development roadmap, your partnership conversations, and your credibility with investors who have seen regulatory processes derail good companies before.</p>
+        <p class="reveal reveal-delay-1" style="font-size:17px;line-height:1.8;color:#4A5568;">The companies that navigate this well are the ones that integrate regulatory thinking into their strategic planning from the beginning. They understand which pathway fits their evidence base, what the timeline and cost implications are, and how to communicate that pathway clearly to the people who need to believe in it.</p>
+        <p class="reveal reveal-delay-2" style="font-size:17px;line-height:1.8;color:#4A5568;">We have achieved CE marking for AI-driven oncology biomarkers and FDA clearance for an imaging platform. We have managed the cross-functional teams and clinical evidence packages required to get there. We bring that experience to your regulatory planning, connected to your wider commercial strategy and not separated from it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT WE DELIVER ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">What We Deliver</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:56px;">Regulatory strategy built into your growth plan.</h2>
+      <div style="border-left:3px solid #C9A84C;padding-left:40px;">
+        {[
+          { label: 'Regulatory pathway planning', desc: 'Mapping the CE marking or FDA clearance route for your product, including pre-submission strategy, evidence requirements, and timeline planning aligned with your commercial objectives.' },
+          { label: 'CE marking readiness', desc: 'Preparing the technical documentation, clinical evidence package, and quality management frameworks required for CE marking under MDR and IVDR.' },
+          { label: 'FDA clearance strategy', desc: 'Advising on 510(k), De Novo, or PMA pathways, pre-submission meetings, and the clinical and technical evidence required to support your submission.' },
+          { label: 'Alignment of regulatory and commercial priorities', desc: 'Ensuring that regulatory planning is integrated with your product development roadmap, fundraising milestones, and go-to-market timing, not treated as a separate problem.' },
+          { label: 'Evidence and validation planning', desc: 'Designing clinical and analytical validation strategies that satisfy regulatory requirements while generating commercially useful data.' },
+          { label: 'Investor communication on regulatory strategy', desc: 'Translating your regulatory pathway into clear, credible language for investor decks, data rooms, and due diligence conversations.' },
+        ].map(({ label, desc }, i, arr) => (
+          <div class="reveal" style={`padding:24px 0;${i < arr.length - 1 ? 'border-bottom:1px solid #E2E0DB;' : ''}`}>
+            <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#0F1A2E;margin-bottom:8px;">{label}</div>
+            <p style="font-size:15px;line-height:1.75;color:#4A5568;">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO THIS IS FOR ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Who This Is For</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">Right for you if…</h2>
+      <div class="reveal" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.22);border-left:3px solid #C9A84C;border-radius:6px;padding:32px 36px;">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          {[
+            'Medtech and diagnostics companies approaching CE marking or FDA clearance',
+            'Healthtech startups developing regulated products that need a clear regulatory strategy integrated with their commercial plan',
+            'Companies preparing fundraising materials that need to present a credible regulatory pathway to investors',
+          ].map(item => (
+            <li style="font-size:16px;color:#4A5568;display:flex;align-items:flex-start;gap:12px;line-height:1.6;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;margin-top:7px;flex-shrink:0;display:inline-block;"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+        <!-- Note -->
+        <p style="font-size:14px;line-height:1.75;color:#4A5568;font-style:italic;margin-top:24px;padding-top:24px;border-top:1px solid rgba(201,168,76,0.22);">GoldWhite provides strategic regulatory advisory and planning. Where formal specialist regulatory, legal, or notified-body services are required, we work alongside or prepare companies for engagement with the appropriate external experts.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW WE WORK ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">How We Work</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:28px;">Regulatory planning as part of the growth plan.</h2>
+      <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;max-width:680px;">Regulatory strategy engagements are typically scoped as defined projects covering pathway planning, evidence strategy, and investor communication packages, or integrated into ongoing retained advisory where regulatory progress is part of a wider growth programme.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,48px);font-weight:600;color:#fff;margin-bottom:20px;">Navigating a regulated pathway?</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

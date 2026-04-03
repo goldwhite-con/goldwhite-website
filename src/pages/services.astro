@@ -1,0 +1,288 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TrendingUp, FlaskConical, Rocket, Settings2, ShieldCheck } from 'lucide-astro';
+
+const services = [
+  {
+    num: '01',
+    id: 'fundraising',
+    icon: TrendingUp,
+    title: 'Fundraising & Financial Strategy',
+    intro: 'Raising capital is one of the most time-consuming and high-stakes activities any startup undertakes. Getting it wrong costs you months, dilution, and momentum. We bring institutional-grade financial expertise to the startup world, having raised over £12M across multiple rounds for our clients.',
+    deliverables: [
+      { label: 'Financial modelling and valuation', desc: 'Building robust, investor-ready financial models that tell your growth story with clarity and credibility.' },
+      { label: 'Pitch materials', desc: 'Creating compelling pitch decks, one-pagers, and data rooms that stand out in a crowded market.' },
+      { label: 'Investor targeting and introductions', desc: 'Identifying the right investors for your stage, sector, and geography, and facilitating warm introductions through our network.' },
+      { label: 'Round management', desc: 'Running structured fundraising processes, managing investor communications, and advising on term sheet negotiations.' },
+      { label: 'Grant applications', desc: 'Preparing and submitting applications to Innovate UK, UKRI, Horizon Europe, and other grant bodies.' },
+      { label: 'Cash-flow management', desc: 'Designing financial controls and forecasting systems to extend your runway and reduce burn rate.' },
+    ],
+    whoFor: [
+      'Healthtech, medtech, and diagnostics companies',
+      'Pre-seed to Series B startups preparing to raise capital',
+      'Companies that need to restructure their financial story',
+      'Teams without a CFO or with limited fundraising experience',
+    ],
+    learnMore: '/services/fundraising-financial-strategy',
+    bg: '#ffffff',
+  },
+  {
+    num: '02',
+    id: 'product',
+    icon: FlaskConical,
+    title: 'Scientific & Product Strategy',
+    intro: 'Building a STEM product requires navigating a maze of scientific validation, regulatory requirements, and technical development decisions. We bring deep domain expertise across life sciences, health-tech, AI/ML, and medical devices to help you make the right calls at every stage.',
+    deliverables: [
+      { label: 'Scientific rationale and positioning', desc: 'Crafting the scientific narrative that underpins your product, aligning clinical evidence with commercial objectives.' },
+      { label: 'Regulatory pathway planning', desc: 'Mapping the route to CE marking, FDA clearance, or other regulatory approvals, including pre-submission strategy and documentation.' },
+      { label: 'Biomarker and diagnostic strategy', desc: 'Developing and validating biomarker strategies for clinical development, companion diagnostics, and precision medicine applications.' },
+      { label: 'Clinical trial design support', desc: 'Advising on trial design, endpoint selection, patient enrichment strategies, and KOL engagement.' },
+      { label: 'AI/ML integration and agentic systems', desc: 'Advising on the integration of artificial intelligence and machine learning across product development, clinical workflows, and business operations. This includes clinical AI validation for regulated environments, AI-driven diagnostic and biomarker strategy, and the design and implementation of agentic AI workflows that help companies automate and accelerate key processes in their products and operations.' },
+      { label: 'Product development roadmaps', desc: 'Creating structured development plans with clear milestones, risk registers, and go/no-go decision frameworks.' },
+    ],
+    whoFor: [
+      'Healthtech, medtech, and diagnostics companies',
+      'Health-tech and med-tech startups developing regulated products',
+      'Life sciences companies navigating clinical development',
+      'AI/ML companies building diagnostic or therapeutic tools',
+    ],
+    learnMore: '/services/scientific-product-strategy',
+    note: 'AI integration is relevant across all of our service areas: from AI-driven fundraising narrative and financial modelling tools, to agentic workflows in product development and clinical trial execution. If AI is part of your product or your business, it is part of our conversation.',
+    bg: '#F8F6F1',
+  },
+  {
+    num: '03',
+    id: 'gtm',
+    icon: Rocket,
+    title: 'Go-to-Market & Commercialisation',
+    intro: 'A scientifically sound product with no route to market is a research project, not a business. We help you bridge the gap between development and commercial success, drawing on experience launching products across health-tech, pharma, deep tech, and consumer technology.',
+    deliverables: [
+      { label: 'Market analysis and competitive positioning', desc: 'Understanding your market landscape, identifying your differentiation, and defining your value proposition.' },
+      { label: 'Launch strategy', desc: 'Planning your market entry, including pricing, channel strategy, partnership development, and initial customer acquisition.' },
+      { label: 'Stakeholder management', desc: 'Managing relationships with investors, board members, clinical partners, and regulatory bodies.' },
+      { label: 'Partnership development', desc: 'Identifying and negotiating strategic partnerships with distributors, healthcare providers, technology platforms, and industry bodies.' },
+    ],
+    whoFor: [
+      'Healthtech, medtech, and diagnostics companies',
+      'Startups preparing to launch their first product',
+      'Companies entering new markets or geographies',
+      'Teams that need to build a commercial function from scratch',
+    ],
+    learnMore: '/services/go-to-market-commercialisation',
+    bg: '#ffffff',
+  },
+  {
+    num: '04',
+    id: 'operations',
+    icon: Settings2,
+    title: 'Operations & Management Advisory',
+    intro: 'Growth creates complexity. We help you build the operational foundations that allow your business to scale without breaking. We also work with companies in distress, bringing turnaround experience and a calm, structured approach to crisis management.',
+    deliverables: [
+      { label: 'Project management and milestone planning', desc: 'Implementing structured project management frameworks tailored to fast-moving startup environments.' },
+      { label: 'Board and investor reporting', desc: "Creating reporting frameworks that keep stakeholders informed and engaged without consuming your team's time." },
+      { label: 'Risk management', desc: 'Building risk registers and mitigation strategies for technical, commercial, and operational risks.' },
+      { label: 'Turnaround and restructuring', desc: 'For businesses in difficulty, we provide rapid diagnostic, stabilisation planning, and execution support.' },
+      { label: 'Product and UX design', desc: 'Bringing a systems-design approach to product architecture, consumer pathways, and user experience. Drawing on training at the Bartlett School of Architecture and experience building a technology platform end-to-end as COO, we help companies design products and experiences that are coherent, usable, and built to scale.' },
+    ],
+    whoFor: [
+      'Healthtech, medtech, and diagnostics companies',
+      'Scaling startups that need to professionalise their operations',
+      'Companies in distress that need experienced hands',
+      'Founder-led businesses that need senior operational support without a full-time hire',
+    ],
+    learnMore: '/services/operations-management-advisory',
+    bg: '#F8F6F1',
+  },
+  {
+    num: '05',
+    id: 'regulatory',
+    icon: ShieldCheck,
+    title: 'Regulatory Approval & Compliance',
+    intro: 'For healthtech, medtech, and diagnostics companies, regulatory approval is not a compliance checkbox. It is a strategic milestone that shapes your product roadmap, your fundraising narrative, and your path to commercial revenue. We have direct experience of both CE marking and FDA clearance, and we help you approach the regulatory pathway as an integrated part of your growth strategy, not a siloed workstream.',
+    deliverables: [
+      { label: 'Regulatory pathway planning', desc: 'Mapping the CE marking or FDA clearance route for your product, including pre-submission strategy, evidence requirements, and timeline planning aligned with your commercial objectives.' },
+      { label: 'CE marking readiness', desc: 'Preparing the technical documentation, clinical evidence package, and quality management frameworks required for CE marking under MDR and IVDR.' },
+      { label: 'FDA clearance strategy', desc: 'Advising on 510(k), De Novo, or PMA pathways, pre-submission meetings, and the clinical and technical evidence required to support your submission.' },
+      { label: 'Alignment of regulatory and commercial priorities', desc: 'Ensuring that regulatory planning is integrated with your product development roadmap, fundraising milestones, and go-to-market timing, not treated as a separate problem.' },
+      { label: 'Evidence and validation planning', desc: 'Designing clinical and analytical validation strategies that satisfy regulatory requirements while generating commercially useful data.' },
+      { label: 'Investor communication on regulatory strategy', desc: 'Translating your regulatory pathway into clear, credible language for investor decks, data rooms, and due diligence conversations.' },
+    ],
+    whoFor: [
+      'Healthtech, medtech, and diagnostics companies',
+      'Medtech and diagnostics companies approaching CE marking or FDA clearance',
+      'Healthtech startups developing regulated products that need a clear regulatory strategy integrated with their commercial plan',
+      'Companies preparing fundraising materials that need to present a credible regulatory pathway to investors',
+    ],
+    learnMore: '/services/regulatory-approval-compliance',
+    note: 'GoldWhite provides strategic regulatory advisory and planning. Where formal specialist regulatory, legal, or notified-body services are required, we work alongside or prepare companies for engagement with the appropriate external experts.',
+    bg: '#ffffff',
+  },
+];
+
+const engagement = [
+  {
+    title: 'Retained Advisory',
+    desc: 'A monthly retainer providing a set number of consulting days, typically 2–8 days per month. Ideal for ongoing strategic support where you need a trusted advisor in your corner.',
+    delay: 'reveal-delay-1',
+  },
+  {
+    title: 'Project-Based',
+    desc: 'A defined scope with clear deliverables, timeline, and fee. Ideal for fundraising rounds, product launches, regulatory submissions, or strategic reviews with a clear end point.',
+    delay: 'reveal-delay-2',
+  },
+  {
+    title: 'Fractional Executive',
+    desc: "One of our directors embeds in your organisation part-time as a fractional CTO, CSO, CFO, or COO. Ideal for companies that need senior leadership but aren't ready for a full-time hire.",
+    delay: 'reveal-delay-3',
+  },
+];
+---
+
+<BaseLayout
+  title="Services | GoldWhite Consulting | Fundraising, Scientific Strategy, Regulatory & Operations"
+  description="Fundraising strategy, scientific and product strategy, regulatory pathway planning, go-to-market, and operations advisory for STEM, healthtech, medtech, and diagnostics startups."
+>
+
+  <style>
+    .svc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .eng-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .svc-grid { grid-template-columns: 1fr; gap: 48px; }
+      .eng-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .svc-section { padding: 80px 24px !important; }
+      .svc-hero    { padding: 140px 24px 80px !important; }
+      .eng-section { padding: 80px 24px !important; }
+      .cta-section { padding: 80px 24px !important; }
+    }
+  </style>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <section class="svc-hero" style="padding:160px 60px 100px;background:#F8F6F1;position:relative;overflow:hidden;">
+    <div style="max-width:760px;">
+      <div class="anim-1" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Services</div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(38px,4.5vw,58px);font-weight:600;line-height:1.12;color:#0F1A2E;margin-bottom:24px;">Strategic advisory for every stage of your journey.</h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:#4A5568;max-width:580px;">From your first experiment to your Series B close, we provide the expertise you need, when you need it. Our particular depth is in healthtech, medtech, and diagnostics, though we work across the full spectrum of STEM.</p>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICE SECTIONS ═══ -->
+  {services.map(({ num, id, icon: Icon, title, intro, deliverables, whoFor, learnMore, note, bg }) => (
+    <section id={id} class="svc-section" style={`padding:120px 60px;background:${bg};position:relative;overflow:hidden;`}>
+
+      <!-- Large faded number accent -->
+      <div aria-hidden="true" style="position:absolute;top:-30px;left:44px;font-family:'Playfair Display',serif;font-size:260px;font-weight:700;color:rgba(201,168,76,0.045);line-height:1;pointer-events:none;user-select:none;z-index:0;">{num}</div>
+
+      <div class="svc-grid">
+
+        <!-- Left: title + intro + who this is for -->
+        <div class="reveal">
+          <div style="width:52px;height:52px;background:rgba(201,168,76,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;">
+            <Icon color="#C9A84C" size={32} strokeWidth={1.5} />
+          </div>
+          <div style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:18px;">{num}</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:clamp(26px,2.8vw,36px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:24px;">{title}</h2>
+          <p style="font-size:16px;line-height:1.8;color:#4A5568;margin-bottom:40px;">{intro}</p>
+
+          <!-- Who this is for -->
+          <div style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.22);border-left:3px solid #C9A84C;border-radius:6px;padding:20px 24px;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:10px;">Who this is for</div>
+            <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;">
+              {whoFor.map(item => (
+                <li style="font-size:14px;color:#4A5568;display:flex;align-items:flex-start;gap:8px;line-height:1.5;">
+                  <span style="width:5px;height:5px;border-radius:50%;background:#C9A84C;margin-top:6px;flex-shrink:0;display:inline-block;"></span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Learn more link -->
+          <div style="margin-top:24px;">
+            <a
+              href={learnMore}
+              style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#C9A84C;text-decoration:none;letter-spacing:.3px;transition:gap .3s;"
+              onmouseover="this.style.gap='12px'" onmouseout="this.style.gap='6px'"
+            >Learn more →</a>
+          </div>
+        </div>
+
+        <!-- Right: deliverables list -->
+        <div class="reveal reveal-delay-2">
+          <div style="padding-left:36px;border-left:3px solid #C9A84C;">
+            <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:28px;">What we deliver</div>
+            {deliverables.map(({ label, desc }, i) => (
+              <div style={`padding:20px 0;${i < deliverables.length - 1 ? 'border-bottom:1px solid #E2E0DB;' : ''}`}>
+                <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#0F1A2E;margin-bottom:6px;">{label}</div>
+                <p style="font-size:14px;line-height:1.75;color:#4A5568;">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Optional note -->
+      {note && (
+        <div style="max-width:1200px;margin:48px auto 0;font-size:14px;line-height:1.75;color:#4A5568;font-style:italic;border-left:3px solid rgba(201,168,76,0.45);padding-left:20px;position:relative;z-index:1;">
+          {note}
+        </div>
+      )}
+
+    </section>
+  ))}
+
+  <!-- ═══ ENGAGEMENT MODELS ═══ -->
+  <section class="eng-section" style="padding:120px 60px;background:#0F1A2E;">
+    <div class="reveal" style="max-width:680px;margin-bottom:72px;">
+      <div style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">How We Work</div>
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(32px,3.5vw,46px);font-weight:600;line-height:1.2;color:#fff;margin-bottom:0;">We work flexibly to suit your needs and budget.</h2>
+    </div>
+
+    <div class="eng-grid">
+      {engagement.map(({ title, desc, delay }) => (
+        <div
+          class={`service-card reveal ${delay}`}
+          style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.09);border-radius:12px;padding:44px 36px;transition:all .4s ease;position:relative;overflow:hidden;"
+          onmouseover="this.style.background='rgba(255,255,255,0.07)';this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.25)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.04)';this.style.transform='none';this.style.boxShadow='none'"
+        >
+          <h3 style="font-family:'Playfair Display',serif;font-size:22px;font-weight:600;color:#fff;margin-bottom:16px;">{title}</h3>
+          <p style="font-size:15px;line-height:1.75;color:rgba(255,255,255,0.5);">{desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cta-section" style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,0.06);">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,50px);font-weight:600;color:#fff;margin-bottom:20px;">Discuss your needs.</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

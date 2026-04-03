@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Go-to-Market & Commercialisation | GoldWhite Consulting"
+  description="Market analysis, launch strategy, stakeholder management, and partnership development for STEM and health-tech startups ready to reach market."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
+    <div style="position:absolute;top:-40%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:780px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        03 — Go-to-Market &amp; Commercialisation
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:28px;">
+        A scientifically sound product with no route to market is a research project, not a business.
+      </h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px;">
+        We help you bridge the gap between development and commercial success, drawing on experience launching products across health-tech, pharma, deep tech, and consumer technology.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ THE CHALLENGE ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">The Challenge</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">When development is done but the commercial path isn't clear</h2>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;">Getting to product completion is hard. But the transition from a functional product to consistent commercial traction is a separate challenge, and one that science-led companies often underestimate.</p>
+        <p class="reveal reveal-delay-1" style="font-size:17px;line-height:1.8;color:#4A5568;">You need to know exactly who you're selling to, why they'll buy, what they'll pay, and how you'll reach them. You need to manage the relationships with clinical partners, distributors, regulators, and boards that determine whether your launch sticks. And you need to do all of this while continuing to build.</p>
+        <p class="reveal reveal-delay-2" style="font-size:17px;line-height:1.8;color:#4A5568;">We have launched CE-marked products, designed reimbursement strategies, managed cross-functional teams through commercial launches, and built go-to-market plans for companies entering entirely new markets. We know what this phase actually requires.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT WE DELIVER ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">What We Deliver</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:56px;">From positioning to first commercial revenue.</h2>
+      <div style="border-left:3px solid #C9A84C;padding-left:40px;">
+        {[
+          { label: 'Market analysis and competitive positioning', desc: 'Understanding your market landscape, identifying your differentiation, and defining your value proposition.' },
+          { label: 'Launch strategy', desc: 'Planning your market entry, including pricing, channel strategy, partnership development, and initial customer acquisition.' },
+          { label: 'Stakeholder management', desc: 'Managing relationships with investors, board members, clinical partners, and regulatory bodies.' },
+          { label: 'Partnership development', desc: 'Identifying and negotiating strategic partnerships with distributors, healthcare providers, technology platforms, and industry bodies.' },
+        ].map(({ label, desc }, i, arr) => (
+          <div class="reveal" style={`padding:24px 0;${i < arr.length - 1 ? 'border-bottom:1px solid #E2E0DB;' : ''}`}>
+            <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#0F1A2E;margin-bottom:8px;">{label}</div>
+            <p style="font-size:15px;line-height:1.75;color:#4A5568;">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO THIS IS FOR ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Who This Is For</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">Right for you if…</h2>
+      <div class="reveal" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.22);border-left:3px solid #C9A84C;border-radius:6px;padding:32px 36px;">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          {[
+            'Healthtech, medtech, and diagnostics companies preparing their first commercial launch',
+            'Startups preparing to launch their first product',
+            'Companies entering new markets or geographies',
+            'Teams that need to build a commercial function from scratch',
+          ].map(item => (
+            <li style="font-size:16px;color:#4A5568;display:flex;align-items:flex-start;gap:12px;line-height:1.6;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;margin-top:7px;flex-shrink:0;display:inline-block;"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW WE WORK ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">How We Work</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:28px;">Built around your launch timeline.</h2>
+      <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;max-width:680px;">Go-to-market engagements are typically structured as defined projects tied to a launch date or market entry event. For companies in active commercial build-out, retained advisory or fractional commercial leadership is often the better model.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,48px);font-weight:600;color:#fff;margin-bottom:20px;">Preparing to launch?</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const sectors = [
+  {
+    heading: 'Healthtech',
+    paragraphs: [
+      'Healthtech businesses face a distinctive challenge: translating technical capability into a proposition that is clinically credible, commercially viable, and compelling to investors and partners, all at once.',
+      'The market is crowded, the regulatory bar is rising, and investors are increasingly sophisticated about what it takes to actually get a health technology product to scale. Generic startup advice is rarely enough. You need advisors who understand the science, the regulatory environment, and the commercial realities of the healthcare system. AI, including agentic workflow systems, is increasingly central to healthtech product development, and it is an area where we have deep, direct experience.',
+      'We have launched AI-driven diagnostic tools, achieved CE marking and FDA clearance, designed clinical trial strategies, and helped healthtech companies raise institutional capital. We work alongside your team, not at arm\'s length.',
+    ],
+    services: [
+      { label: 'Scientific & Product Strategy',        href: '/services/scientific-product-strategy' },
+      { label: 'Regulatory Approval & Compliance',     href: '/services/regulatory-approval-compliance' },
+      { label: 'Fundraising & Financial Strategy',     href: '/services/fundraising-financial-strategy' },
+      { label: 'Go-to-Market & Commercialisation',     href: '/services/go-to-market-commercialisation' },
+    ],
+    bg: '#F8F6F1',
+  },
+  {
+    heading: 'Medtech',
+    paragraphs: [
+      'Medtech companies operate in one of the most demanding environments in any startup ecosystem. Product development, clinical evidence, regulatory requirements, reimbursement strategy, and commercial planning all need to move forward in coordination. The consequences of poor sequencing are expensive.',
+      'We understand this environment from the inside. We have managed the cross-functional teams, evidence packages, and regulatory submissions required to achieve CE marking. We know what investors need to see to back a medtech company through the development cycle. And we know how to connect regulatory and clinical planning to your fundraising and commercial narrative in a way that is credible under scrutiny. Where AI is part of the product or the development process, we bring specific expertise in clinical AI validation and the regulatory implications of AI-driven medtech.',
+    ],
+    services: [
+      { label: 'Regulatory Approval & Compliance',     href: '/services/regulatory-approval-compliance' },
+      { label: 'Scientific & Product Strategy',        href: '/services/scientific-product-strategy' },
+      { label: 'Fundraising & Financial Strategy',     href: '/services/fundraising-financial-strategy' },
+      { label: 'Operations & Management Advisory',     href: '/services/operations-management-advisory' },
+    ],
+    bg: '#ffffff',
+  },
+  {
+    heading: 'Diagnostics',
+    paragraphs: [
+      'Diagnostics companies combine deep technical sophistication with equally demanding commercial and regulatory realities. A strong biomarker or assay platform is only the beginning. You also need to define a compelling market proposition, design a clinical validation strategy that satisfies regulators and convinces payers, and communicate your technology in a way that investors and clinical partners can evaluate quickly.',
+      'We have specific expertise in biomarker strategy, companion diagnostics, and AI-driven diagnostic tools. Marc Goldfinger, our Director of Life Sciences and Health-Tech Strategy, spent years at the forefront of AI-driven oncology diagnostics, developing and launching CE-marked biomarkers and achieving FDA clearance for an imaging platform. This is not generalist knowledge applied to diagnostics. It is direct domain expertise. Our AI credentials in diagnostics are direct and evidenced: eight CE-marked AI biomarkers launched, FDA clearance achieved for an AI imaging platform, and a US patent for AI-driven biomarker detection.',
+    ],
+    services: [
+      { label: 'Scientific & Product Strategy',        href: '/services/scientific-product-strategy' },
+      { label: 'Regulatory Approval & Compliance',     href: '/services/regulatory-approval-compliance' },
+      { label: 'Fundraising & Financial Strategy',     href: '/services/fundraising-financial-strategy' },
+      { label: 'Go-to-Market & Commercialisation',     href: '/services/go-to-market-commercialisation' },
+    ],
+    bg: '#F8F6F1',
+  },
+  {
+    heading: 'Deep Tech & AI',
+    paragraphs: [
+      'Artificial intelligence is no longer a peripheral feature of deep tech products. It is increasingly the core. We have direct, hands-on experience building and launching AI-driven products in regulated clinical environments, and we understand both the technical realities and the commercial and regulatory implications of deploying AI at scale.',
+      'Our AI capabilities span clinical AI product development and validation, AI-driven biomarker and diagnostic strategy, and the design and implementation of agentic AI workflows. Agentic AI (where AI systems autonomously execute tasks, coordinate processes, and make decisions across complex workflows) is rapidly becoming a competitive differentiator for companies in healthtech, medtech, drug development, and beyond. We help companies assess where agentic systems can add the most value, design the right architecture, and implement them in a way that is commercially sound and operationally robust. Jonas Weiss brings additional depth here, applying AI tools including generative and agentic systems to operational design and product architecture, informed by large-scale delivery experience across some of Europe and Asia\'s most complex built projects.',
+      'David Weiss, our Director of Fundraising and Commercial Strategy, holds a PhD in Engineering from Cambridge and has co-founded and exited two technology companies. Marc Goldfinger, our Director of Life Sciences and Health-Tech Strategy, developed and launched eight CE-marked AI biomarkers and holds a US patent for AI-driven biomarker detection. Between them, they bring both the engineering rigour and the clinical AI expertise to advise deep tech and AI companies with credibility.',
+    ],
+    services: [
+      { label: 'Fundraising & Financial Strategy',     href: '/services/fundraising-financial-strategy' },
+      { label: 'Scientific & Product Strategy',        href: '/services/scientific-product-strategy' },
+      { label: 'Go-to-Market & Commercialisation',     href: '/services/go-to-market-commercialisation' },
+    ],
+    bg: '#ffffff',
+  },
+  {
+    heading: 'Operations & Scaling',
+    paragraphs: [
+      'Every technically strong business hits a point where operational complexity becomes the constraint. The product works. The science is solid. The fundraising is done. But the infrastructure to scale is not yet in place: the processes, the reporting, the coordination, the product architecture, and the operational rhythm. This is one of the most common and most underserved challenges in the startup ecosystem.',
+      'GoldWhite supports founder-led businesses at exactly this inflection point. We help leadership teams build the operational foundations that allow a business to grow without breaking: from project management and milestone planning to board reporting, risk management, and product and UX design. For businesses in distress, we also provide rapid diagnostic and turnaround support.',
+      'Our operational advisory is led by Jonas Weiss, who brings a rare combination of large-scale systems design experience (coordinating projects of extraordinary complexity across Europe and Asia) and startup operating experience as co-founder and COO of a technology company. He also integrates AI and agentic workflow design into operational strategy, helping companies identify where intelligent automation can reduce friction and accelerate execution.',
+    ],
+    services: [
+      { label: 'Operations & Management Advisory',     href: '/services/operations-management-advisory' },
+      { label: 'Fractional Executive',                 href: '/services' },
+      { label: 'Go-to-Market & Commercialisation',     href: '/services/go-to-market-commercialisation' },
+    ],
+    bg: '#F8F6F1',
+  },
+];
+---
+
+<BaseLayout
+  title="Sectors | GoldWhite Consulting | Healthtech, Medtech, Diagnostics & Deep Tech Advisory"
+  description="GoldWhite works with healthtech, medtech, diagnostics, deep tech, and scaling STEM companies. Specialist STEM advisory with a proven track record in regulated health innovation."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
+    <div style="position:absolute;top:-40%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.04) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:820px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        Where We Work
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:28px;">
+        Built for healthtech, medtech, diagnostics, and the full spectrum of STEM.
+      </h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:660px;">
+        Our deepest expertise and strongest track record is in healthcare innovation. We also work across deep tech, AI, operations and scaling, and other technical sectors where the challenges of fundraising, product development, and commercialisation are closely connected.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ SECTOR SECTIONS ═══ -->
+  {sectors.map(({ heading, paragraphs, services, bg }) => (
+    <section style={`padding:120px 60px;background:${bg};`}>
+      <div style="max-width:900px;margin:0 auto;">
+
+        <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Sector</div>
+        <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(30px,3.5vw,46px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">{heading}</h2>
+
+        <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:48px;">
+          {paragraphs.map((p, i) => (
+            <p class={`reveal${i > 0 ? ` reveal-delay-${i}` : ''}`} style="font-size:17px;line-height:1.8;color:#4A5568;">{p}</p>
+          ))}
+        </div>
+
+        <!-- Relevant services -->
+        <div class="reveal reveal-delay-2">
+          <div style="font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Relevant services</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            {services.map(({ label, href }) => (
+              <a
+                href={href}
+                style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#C9A84C;text-decoration:none;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.3);border-radius:4px;padding:8px 16px;letter-spacing:.3px;transition:all .25s;"
+                onmouseover="this.style.background='rgba(201,168,76,0.18)';this.style.borderColor='rgba(201,168,76,0.6)'"
+                onmouseout="this.style.background='rgba(201,168,76,0.08)';this.style.borderColor='rgba(201,168,76,0.3)'"
+              >{label} →</a>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </section>
+  ))}
+
+  <!-- ═══ CLOSING SECTION ═══ -->
+  <section style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:680px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,50px);font-weight:600;color:#fff;margin-bottom:24px;line-height:1.15;">We are most useful at moments of inflection.</h2>
+      <p style="font-size:17px;line-height:1.8;color:rgba(255,255,255,.55);margin-bottom:40px;">Across all sectors, GoldWhite adds the most value when a technically strong business is facing a commercially defining decision: a fundraising process, a regulatory submission, a product launch, a market pivot, or a period of operational complexity. If you are navigating one of those moments, we would be glad to talk.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

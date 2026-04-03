@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Scientific & Product Strategy | GoldWhite Consulting"
+  description="Scientific rationale, regulatory pathway planning, biomarker strategy, clinical trial design, and AI/ML integration for STEM and health-tech startups."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
+    <div style="position:absolute;top:-40%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:780px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        02 — Scientific &amp; Product Strategy
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:28px;">
+        The gap between a strong scientific idea and a market-ready product is where most STEM startups get stuck.
+      </h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px;">
+        We bring deep domain expertise across life sciences, health-tech, AI/ML, and medical devices to help you make the right technical and regulatory decisions at every stage.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ THE CHALLENGE ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">The Challenge</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">When technical depth doesn't yet equal product clarity</h2>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;">Building a regulated health or life sciences product means navigating a maze of scientific validation, regulatory requirements, and development decisions, often simultaneously and often without a clear roadmap.</p>
+        <p class="reveal reveal-delay-1" style="font-size:17px;line-height:1.8;color:#4A5568;">The wrong call on biomarker strategy, regulatory pathway, or clinical trial design can cost you twelve months and materially change your fundraising position. These decisions compound early.</p>
+        <p class="reveal reveal-delay-2" style="font-size:17px;line-height:1.8;color:#4A5568;">We have developed AI-driven biomarkers that achieved CE marking, achieved FDA clearance for an imaging platform, advised on clinical trial design across immunology and fibrosis, and helped companies translate complex science into product strategies that made sense commercially and clinically. We bring that experience directly to your team.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT WE DELIVER ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">What We Deliver</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:56px;">Science-to-product clarity at every stage.</h2>
+      <div style="border-left:3px solid #C9A84C;padding-left:40px;">
+        {[
+          { label: 'Scientific rationale and positioning', desc: 'Crafting the scientific narrative that underpins your product, aligning clinical evidence with commercial objectives.' },
+          { label: 'Regulatory pathway planning', desc: 'Mapping the route to CE marking, FDA clearance, or other regulatory approvals, including pre-submission strategy and documentation.' },
+          { label: 'Biomarker and diagnostic strategy', desc: 'Developing and validating biomarker strategies for clinical development, companion diagnostics, and precision medicine applications.' },
+          { label: 'Clinical trial design support', desc: 'Advising on trial design, endpoint selection, patient enrichment strategies, and KOL engagement.' },
+          { label: 'AI/ML integration and agentic systems', desc: 'Advising on the integration of artificial intelligence and machine learning across product development, clinical workflows, and business operations. This includes clinical AI validation for regulated environments, AI-driven diagnostic and biomarker strategy, and the design and implementation of agentic AI workflows that help companies automate and accelerate key processes in their products and operations.' },
+          { label: 'Product development roadmaps', desc: 'Creating structured development plans with clear milestones, risk registers, and go/no-go decision frameworks.' },
+        ].map(({ label, desc }, i, arr) => (
+          <div class="reveal" style={`padding:24px 0;${i < arr.length - 1 ? 'border-bottom:1px solid #E2E0DB;' : ''}`}>
+            <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#0F1A2E;margin-bottom:8px;">{label}</div>
+            <p style="font-size:15px;line-height:1.75;color:#4A5568;">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ AI CALLOUT ═══ -->
+  <section style="padding:80px 60px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="background:rgba(201,168,76,0.06);border-left:4px solid #C9A84C;border-radius:0 8px 8px 0;padding:48px 52px;">
+        <h3 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(22px,2.5vw,30px);font-weight:600;color:#0F1A2E;margin-bottom:28px;">AI in clinical and product environments</h3>
+        <div style="display:flex;flex-direction:column;gap:20px;">
+          <p class="reveal" style="font-size:16px;line-height:1.8;color:#4A5568;">Artificial intelligence is reshaping how products are built, validated, and brought to market across healthtech, medtech, and diagnostics. We have direct experience on the front line of that shift, having developed and launched eight CE-marked AI-driven biomarkers for oncology and achieved FDA clearance for an AI imaging platform. We hold a US patent for AI-driven biomarker detection.</p>
+          <p class="reveal reveal-delay-1" style="font-size:16px;line-height:1.8;color:#4A5568;">Beyond clinical AI products, we help companies design and implement agentic AI workflows: systems where AI agents autonomously execute tasks, coordinate processes, and accelerate decision-making across product development, clinical trial execution, drug development pipelines, and business operations.</p>
+          <p class="reveal reveal-delay-2" style="font-size:16px;line-height:1.8;color:#4A5568;">Whether you are building an AI-driven product, integrating AI into an existing platform, or exploring how agentic systems could transform your internal workflows, we bring both the technical credibility and the commercial judgement to help you do it well.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO THIS IS FOR ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Who This Is For</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">Right for you if…</h2>
+      <div class="reveal" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.22);border-left:3px solid #C9A84C;border-radius:6px;padding:32px 36px;">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          {[
+            'Healthtech, medtech, and diagnostics companies developing regulated products',
+            'Life sciences companies navigating clinical development',
+            'AI/ML companies building diagnostic or therapeutic tools',
+            'Teams that need to translate complex science into a credible commercial product strategy',
+          ].map(item => (
+            <li style="font-size:16px;color:#4A5568;display:flex;align-items:flex-start;gap:12px;line-height:1.6;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;margin-top:7px;flex-shrink:0;display:inline-block;"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW WE WORK ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">How We Work</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:28px;">Embedded expertise, not external reports.</h2>
+      <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;max-width:680px;">We work on scientific and product strategy engagements as defined projects or as retained advisors embedded in your team over a period of months. For companies with an active product pipeline, the fractional executive model, fractional CSO or CMO, is often the most effective structure.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,48px);font-weight:600;color:#fff;margin-bottom:20px;">Building something technically complex?</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

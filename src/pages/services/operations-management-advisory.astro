@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Operations & Management Advisory | GoldWhite Consulting"
+  description="Project management, board reporting, risk management, turnaround advisory, and product and UX design advisory for scaling startups and tech companies."
+>
+
+  <!-- ═══ HERO ═══ -->
+  <section style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
+    <div style="position:absolute;top:-40%;right:-15%;width:800px;height:800px;background:radial-gradient(circle,rgba(201,168,76,.07) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div style="position:relative;z-index:2;max-width:780px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        04 — Operations &amp; Management Advisory
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.5vw,58px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:28px;">
+        Growth creates complexity. We help you build the operational foundations that allow your business to scale without breaking.
+      </h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:640px;">
+        From project management and board reporting to turnaround and restructuring, and product and UX design advisory for companies at every stage of growth.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══ THE CHALLENGE ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">The Challenge</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">When execution starts to fall behind strategy</h2>
+      <div style="display:flex;flex-direction:column;gap:24px;">
+        <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;">Most early-stage companies hit a point where the pace of strategic ambition outstrips the operational infrastructure. Reporting is inconsistent. Projects drift. Risk management is reactive. Investor confidence erodes.</p>
+        <p class="reveal reveal-delay-1" style="font-size:17px;line-height:1.8;color:#4A5568;">Sometimes the challenge is more acute: a company in financial distress, a cash-flow crisis, or a board relationship that has broken down. These situations require experienced, calm, structured intervention.</p>
+        <p class="reveal reveal-delay-2" style="font-size:17px;line-height:1.8;color:#4A5568;">Jonas Weiss, our Director of Product and Operations, brings a rare combination of large-scale operational experience and product design thinking to startup advisory. Trained at the Bartlett School of Architecture at UCL, he has coordinated projects of extraordinary complexity, including a €200M luxury hotel, a 700,000 sqft urban masterplan, and a Mumbai skyscraper, and co-founded and operated a technology company as COO. He applies that systems-design discipline, alongside fluency in AI and agentic workflow integration, to help startups build operational infrastructure that scales.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHAT WE DELIVER ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">What We Deliver</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:56px;">Operational rigour at every stage of growth.</h2>
+      <div style="border-left:3px solid #C9A84C;padding-left:40px;">
+        {[
+          { label: 'Project management and milestone planning', desc: 'Implementing structured project management frameworks tailored to fast-moving startup environments.' },
+          { label: 'Board and investor reporting', desc: "Creating reporting frameworks that keep stakeholders informed and engaged without consuming your team's time." },
+          { label: 'Risk management', desc: 'Building risk registers and mitigation strategies for technical, commercial, and operational risks.' },
+          { label: 'Turnaround and restructuring', desc: 'For businesses in difficulty, we provide rapid diagnostic, stabilisation planning, and execution support.' },
+          { label: 'Product and UX design', desc: 'Bringing a systems-design approach to product architecture, consumer pathways, and user experience, informed by large-scale operational delivery and end-to-end platform development.' },
+        ].map(({ label, desc }, i, arr) => (
+          <div class="reveal" style={`padding:24px 0;${i < arr.length - 1 ? 'border-bottom:1px solid #E2E0DB;' : ''}`}>
+            <div style="font-family:'Playfair Display',serif;font-size:17px;font-weight:600;color:#0F1A2E;margin-bottom:8px;">{label}</div>
+            <p style="font-size:15px;line-height:1.75;color:#4A5568;">{desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHO THIS IS FOR ═══ -->
+  <section style="padding:120px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">Who This Is For</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:40px;">Right for you if…</h2>
+      <div class="reveal" style="background:rgba(201,168,76,0.07);border:1px solid rgba(201,168,76,0.22);border-left:3px solid #C9A84C;border-radius:6px;padding:32px 36px;">
+        <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:16px;">
+          {[
+            'Scaling startups that need to professionalise their operations',
+            'Companies in distress that need experienced hands',
+            'Founder-led businesses that need senior operational support without a full-time hire',
+          ].map(item => (
+            <li style="font-size:16px;color:#4A5568;display:flex;align-items:flex-start;gap:12px;line-height:1.6;">
+              <span style="width:6px;height:6px;border-radius:50%;background:#C9A84C;margin-top:7px;flex-shrink:0;display:inline-block;"></span>
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW WE WORK ═══ -->
+  <section style="padding:120px 60px;background:#fff;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">How We Work</div>
+      <h2 class="reveal" style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,40px);font-weight:600;line-height:1.2;color:#0F1A2E;margin-bottom:28px;">Embedded for as long as you need us.</h2>
+      <p class="reveal" style="font-size:17px;line-height:1.8;color:#4A5568;max-width:680px;">Operations and management advisory is typically structured as a retained engagement or fractional executive role. This means embedded involvement over weeks or months, rather than a one-time project. For distress situations, we work on rapid-response project terms.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,48px);font-weight:600;color:#fff;margin-bottom:20px;">Need operational support?</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

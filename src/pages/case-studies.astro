@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const cases = [
+  {
+    tag: 'Health-Tech · Fundraising',
+    headline: 'Series A fundraise for a pre-revenue diagnostic startup',
+    summary: 'From no investor network to a closed round in four months.',
+    metric: '£3.2M',
+    metricLabel: 'Series A raised',
+    href: '/case-studies/health-tech-series-a',
+    delay: 'reveal-delay-1',
+  },
+  {
+    tag: 'Digital Health · Regulatory',
+    headline: 'FDA clearance and CE marking for an AI imaging tool',
+    summary: 'Regulatory clearance across two geographies and first commercial revenue within twelve months.',
+    metric: '2',
+    metricLabel: 'Regulatory clearances achieved',
+    href: '/case-studies/regulatory-clearance',
+    delay: 'reveal-delay-2',
+  },
+  {
+    tag: 'Mobility Tech · Turnaround',
+    headline: 'Stabilising a funded mobility startup in financial distress',
+    summary: 'Rapid diagnostic, restructured investor relations, and extended runway.',
+    metric: 'Runway extended',
+    metricLabel: 'Cash-flow crisis resolved',
+    href: '/case-studies/turnaround-advisory',
+    delay: 'reveal-delay-3',
+  },
+];
+---
+
+<BaseLayout
+  title="Case Studies | GoldWhite | Real Results for STEM Startups"
+  description="See how we have helped STEM startups raise capital, achieve regulatory clearance, and launch products. Over £12M raised for clients."
+>
+
+  <style>
+    .cs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px)  { .cs-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px)  {
+      .cs-ov-hero  { padding: 140px 24px 80px !important; }
+      .cs-ov-cards { padding: 80px 24px !important; }
+      .cs-ov-cta   { padding: 80px 24px !important; }
+    }
+  </style>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="cs-ov-hero" style="padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;">
+    <div class="pulse-slow"   style="position:absolute;top:-50%;right:-20%;width:900px;height:900px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="pulse-slow-r" style="position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="hero-grid"></div>
+
+    <div style="position:relative;z-index:2;max-width:680px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        Our Work
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.2vw,56px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:24px;">Real challenges. Measurable results.</h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:560px;">Here is a selection of the work we have done for our clients.</p>
+    </div>
+  </section>
+
+  <!-- ═══ CARDS ═══ -->
+  <section class="cs-ov-cards" style="padding:100px 60px;background:#F8F6F1;">
+    <div class="cs-grid">
+      {cases.map(({ tag, headline, summary, metric, metricLabel, href, delay }) => (
+        <div
+          class={`service-card reveal ${delay}`}
+          style="background:#fff;border:1px solid #E2E0DB;border-radius:12px;padding:40px 36px;transition:all .4s ease;position:relative;overflow:hidden;display:flex;flex-direction:column;"
+          onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.08)';this.style.borderColor='transparent'"
+          onmouseout="this.style.transform='none';this.style.boxShadow='none';this.style.borderColor='#E2E0DB'"
+        >
+          <div style="display:inline-block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;background:rgba(201,168,76,.12);padding:5px 12px;border-radius:4px;margin-bottom:20px;align-self:flex-start;">{tag}</div>
+          <h2 style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;line-height:1.3;color:#0F1A2E;margin-bottom:12px;">{headline}</h2>
+          <p style="font-size:14px;line-height:1.7;color:#4A5568;margin-bottom:32px;flex:1;">{summary}</p>
+          <div style="margin-bottom:28px;">
+            <div style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,36px);font-weight:600;color:#C9A84C;line-height:1;margin-bottom:5px;">{metric}</div>
+            <div style="font-size:12px;color:#8896AB;letter-spacing:.4px;">{metricLabel}</div>
+          </div>
+          <a
+            href={href}
+            style="display:inline-flex;align-items:center;gap:6px;font-size:14px;font-weight:600;color:#C9A84C;text-decoration:none;letter-spacing:.3px;transition:gap .3s;"
+            onmouseover="this.style.gap='12px'"
+            onmouseout="this.style.gap='6px'"
+          >Read the full story →</a>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══ CTA ═══ -->
+  <section class="cs-ov-cta" style="padding:120px 60px;background:#0F1A2E;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,168,76,.08) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="reveal" style="position:relative;z-index:2;max-width:600px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(36px,4vw,50px);font-weight:600;color:#fff;margin-bottom:20px;">Want results like these?</h2>
+      <p style="font-size:17px;line-height:1.7;color:rgba(255,255,255,.5);margin-bottom:40px;">Every engagement starts with a conversation. Book a 30-minute strategy call with one of our directors. No pitch, no obligation.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:18px 40px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;letter-spacing:.3px;transition:all .3s;"
+        onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)';this.style.boxShadow='0 8px 30px rgba(201,168,76,.3)'"
+        onmouseout="this.style.background='#C9A84C';this.style.transform='none';this.style.boxShadow='none'"
+      >Book a Strategy Call →</a>
+    </div>
+  </section>
+
+</BaseLayout>

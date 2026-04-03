@@ -1,0 +1,198 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const formatDate = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+
+const topics = [
+  { title: 'How to Raise a Seed Round for a Health-Tech Startup in the UK',            author: 'David Weiss' },
+  { title: 'The Regulatory Pathway for AI Medical Devices in the UK and EU',            author: 'Marc Goldfinger' },
+  { title: 'Why Your Pitch Deck Is Not Getting Meetings: A Fundraiser\'s Perspective',  author: 'David Weiss' },
+  { title: 'Biomarker Strategy for Early-Stage Drug Development: Where to Start',       author: 'Marc Goldfinger' },
+  { title: 'From Lab to Launch: 5 Lessons From Taking a Health-Tech Product to Market', author: 'GoldWhite Team' },
+  { title: 'What Founder-Led Businesses Get Wrong About Operational Scale',             author: 'Jonas Weiss' },
+  { title: 'The Fractional Executive: When to Hire a Part-Time CFO, CTO, or COO',      author: 'David Weiss' },
+];
+---
+
+<BaseLayout
+  title="Insights | GoldWhite | Analysis & Guidance for STEM Founders"
+  description="Practical articles on fundraising, product strategy, regulatory pathways, and go-to-market planning for STEM and health-tech founders."
+>
+
+  <style>
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .signup-row {
+      display: flex;
+      gap: 12px;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) { .insights-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 640px) {
+      .ins-hero    { padding: 140px 24px 80px !important; }
+      .ins-posts   { padding: 80px 24px !important; }
+      .ins-signup  { padding: 80px 24px !important; }
+      .ins-topics  { padding: 80px 24px !important; }
+      .signup-row  { flex-direction: column; }
+    }
+  </style>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="ins-hero" style="padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;">
+    <div class="pulse-slow"   style="position:absolute;top:-50%;right:-20%;width:900px;height:900px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="pulse-slow-r" style="position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="hero-grid"></div>
+
+    <div style="position:relative;z-index:2;max-width:680px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        Insights
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(36px,4.2vw,56px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:24px;">Thinking from our team.</h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:560px;">Analysis, opinion, and practical guidance on the topics that matter to STEM founders.</p>
+    </div>
+  </section>
+
+  <!-- ═══ POSTS GRID ═══ -->
+  <section class="ins-posts" style="padding:100px 60px;background:#F8F6F1;">
+    {posts.length === 0 ? (
+      <div class="reveal" style="max-width:560px;margin:0 auto;text-align:center;padding:40px 0;">
+        <p style="font-size:16px;line-height:1.7;color:#4A5568;">Our first articles are coming soon. Sign up below to be notified.</p>
+      </div>
+    ) : (
+      <div class="insights-grid">
+        {posts.map((post, i) => {
+          const delay = i === 0 ? 'reveal-delay-1' : i === 1 ? 'reveal-delay-2' : 'reveal-delay-3';
+          return (
+            <div
+              class={`service-card reveal ${delay}`}
+              style="background:#fff;border:1px solid #E2E0DB;border-radius:12px;padding:36px 32px;transition:all .4s ease;position:relative;overflow:hidden;display:flex;flex-direction:column;"
+              onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 60px rgba(0,0,0,.08)';this.style.borderColor='transparent'"
+              onmouseout="this.style.transform='none';this.style.boxShadow='none';this.style.borderColor='#E2E0DB'"
+            >
+              {/* Tag pills */}
+              {post.data.tags && post.data.tags.length > 0 && (
+                <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;">
+                  {post.data.tags.map(tag => (
+                    <span style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;background:rgba(201,168,76,.12);padding:4px 10px;border-radius:4px;">{tag}</span>
+                  ))}
+                </div>
+              )}
+
+              {/* Title */}
+              <h2 style="font-family:'Playfair Display',serif;font-size:19px;font-weight:600;line-height:1.3;color:#0F1A2E;margin-bottom:12px;flex:1;">{post.data.title}</h2>
+
+              {/* Summary */}
+              <p style="font-size:14px;line-height:1.7;color:#4A5568;margin-bottom:24px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;">{post.data.summary}</p>
+
+              {/* Footer row */}
+              <div style="border-top:1px solid #E2E0DB;padding-top:16px;display:flex;justify-content:space-between;align-items:center;margin-top:auto;">
+                <div style="display:flex;flex-direction:column;gap:2px;">
+                  <span style="font-size:12px;font-weight:600;color:#C9A84C;">{post.data.author}</span>
+                  <span style="font-size:11px;color:#8896AB;">{formatDate(post.data.date)}</span>
+                </div>
+                <a
+                  href={`/insights/${post.id}`}
+                  style="display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:#C9A84C;text-decoration:none;letter-spacing:.3px;transition:gap .3s;"
+                  onmouseover="this.style.gap='10px'"
+                  onmouseout="this.style.gap='6px'"
+                >Read →</a>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    )}
+  </section>
+
+  <!-- ═══ EMAIL SIGNUP ═══ -->
+  <section class="ins-signup" style="padding:100px 60px;background:#fff;text-align:center;">
+    <div class="reveal" style="max-width:560px;margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:600;color:#0F1A2E;margin-bottom:16px;">Get our latest insights.</h2>
+      <p style="font-size:16px;line-height:1.75;color:#4A5568;margin-bottom:36px;">Practical articles on fundraising, product strategy, regulatory pathways, and go-to-market planning, delivered to your inbox.</p>
+
+      <!-- TODO: Connect to Mailchimp or ConvertKit — replace action with service endpoint -->
+      <form id="insights-signup" action="#" novalidate>
+        <div class="signup-row">
+          <input
+            id="email-input"
+            type="email"
+            placeholder="your@email.com"
+            required
+            style="flex:1;padding:14px 18px;border:1.5px solid #E2E0DB;border-radius:8px;font-size:15px;font-family:'DM Sans',sans-serif;color:#0F1A2E;outline:none;transition:border-color .3s;"
+            onfocus="this.style.borderColor='#C9A84C'"
+            onblur="this.style.borderColor='#E2E0DB'"
+          />
+          <button
+            type="submit"
+            style="background:#C9A84C;color:#0F1A2E;padding:14px 28px;border:none;border-radius:8px;font-weight:600;font-size:15px;font-family:'DM Sans',sans-serif;cursor:pointer;white-space:nowrap;transition:background .3s;"
+            onmouseover="this.style.background='#E0C777'"
+            onmouseout="this.style.background='#C9A84C'"
+          >Subscribe</button>
+        </div>
+        <div id="signup-error" style="display:none;font-size:13px;color:#C0392B;margin-top:10px;">Please enter a valid email address.</div>
+      </form>
+
+      <div id="signup-success" style="display:none;font-size:16px;font-weight:500;color:#0F1A2E;padding:16px 24px;background:#F8F6F1;border:1px solid rgba(201,168,76,.3);border-radius:8px;margin-top:0;">
+        Thanks — we'll be in touch.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TOPICS (COMING SOON) ═══ -->
+  <section class="ins-topics" style="padding:100px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="margin-bottom:56px;">
+        <div style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Coming Soon</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:600;color:#0F1A2E;">What we're writing about.</h2>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:0;">
+        {topics.map(({ title, author }, i) => (
+          <div
+            class="reveal"
+            style={`padding:20px 0 20px 28px;border-left:3px solid rgba(201,168,76,.25);${i < topics.length - 1 ? 'margin-bottom:4px;border-bottom:1px solid #E2E0DB;' : ''}`}
+          >
+            <div style="font-size:16px;font-weight:600;color:#0F1A2E;line-height:1.4;margin-bottom:6px;">{title}</div>
+            <div style="font-size:13px;color:rgba(201,168,76,.75);font-weight:500;">{author}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+(function () {
+  var form    = document.getElementById('insights-signup');
+  var input   = document.getElementById('email-input');
+  var success = document.getElementById('signup-success');
+  var error   = document.getElementById('signup-error');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var val   = input ? input.value.trim() : '';
+    var valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+    if (!valid) {
+      if (error) error.style.display = 'block';
+      return;
+    }
+    if (error)   error.style.display   = 'none';
+    form.style.display  = 'none';
+    if (success) success.style.display = 'block';
+  });
+})();
+</script>

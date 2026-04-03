@@ -1,0 +1,324 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  {
+    num: '01',
+    title: 'You get in touch',
+    desc: 'Fill in the form or book a call directly. Tell us what you\'re working on.',
+  },
+  {
+    num: '02',
+    title: 'We respond within 24 hours',
+    desc: 'One of our directors will reach out to arrange a free 30-minute call.',
+  },
+  {
+    num: '03',
+    title: 'Honest assessment',
+    desc: 'We\'ll tell you clearly whether and how we can help, and what that would look like.',
+  },
+];
+---
+
+<BaseLayout
+  title="Contact | GoldWhite | Book a Strategy Call"
+  description="Get in touch with GoldWhite. Book a 30-minute strategy call with one of our directors. London-based STEM startup advisory."
+>
+
+  <style>
+    /* Two-column contact layout */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 80px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Form inputs */
+    .form-field { display: flex; flex-direction: column; gap: 6px; }
+    .form-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1.5px solid #E2E0DB;
+      border-radius: 8px;
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      color: #0F1A2E;
+      background: #fff;
+      transition: border-color .25s, box-shadow .25s;
+      outline: none;
+    }
+    .form-input:focus {
+      border-color: #C9A84C;
+      box-shadow: 0 0 0 3px rgba(201,168,76,.12);
+    }
+    .form-input.invalid { border-color: #C0392B; }
+    .form-input::placeholder { color: #A0AEC0; }
+    textarea.form-input { resize: vertical; min-height: 130px; }
+    select.form-input { cursor: pointer; }
+    .field-error {
+      display: none;
+      font-size: 12px;
+      color: #C0392B;
+      font-weight: 500;
+    }
+    .field-error.visible { display: block; }
+
+    /* Steps */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 56px; }
+    }
+    @media (max-width: 640px) {
+      .contact-hero    { padding: 140px 24px 80px !important; }
+      .contact-body    { padding: 72px 24px !important; }
+      .contact-expect  { padding: 80px 24px !important; }
+      .steps-grid      { grid-template-columns: 1fr; gap: 40px; }
+      .step-connector  { display: none; }
+    }
+  </style>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="contact-hero" style="padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;">
+    <div class="pulse-slow"   style="position:absolute;top:-50%;right:-20%;width:900px;height:900px;background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="pulse-slow-r" style="position:absolute;bottom:-30%;left:-10%;width:600px;height:600px;background:radial-gradient(circle,rgba(201,168,76,.05) 0%,transparent 70%);border-radius:50%;pointer-events:none;"></div>
+    <div class="hero-grid"></div>
+
+    <div style="position:relative;z-index:2;max-width:680px;">
+      <div class="anim-1" style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">
+        <span style="width:40px;height:1.5px;background:#C9A84C;display:inline-block;"></span>
+        Contact
+      </div>
+      <h1 class="anim-2" style="font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);font-weight:600;line-height:1.12;color:#fff;margin-bottom:24px;">Every engagement starts with a conversation.</h1>
+      <p class="anim-3" style="font-size:18px;line-height:1.75;color:rgba(255,255,255,.6);max-width:560px;">Tell us about your challenge and we will get back to you within 24 hours.</p>
+    </div>
+  </section>
+
+  <!-- ═══ MAIN CONTENT ═══ -->
+  <section class="contact-body" style="padding:100px 60px;background:#fff;">
+    <div class="contact-grid reveal">
+
+      <!-- ── LEFT: FORM ── -->
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:32px;">Send us a message</div>
+
+        <form
+          id="contact-form"
+          action="https://formspree.io/f/mpqoydlp"
+          method="POST"
+          novalidate
+          style="display:flex;flex-direction:column;gap:20px;"
+        >
+          <input type="hidden" name="_subject" value="New enquiry from GoldWhite website" />
+
+          <div class="form-field">
+            <label for="f-name" style="font-size:13px;font-weight:500;color:#0F1A2E;">Name</label>
+            <input id="f-name"      name="name"      type="text"  class="form-input" placeholder="Your full name" />
+            <span id="err-name"  class="field-error">Please enter your name.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-email" style="font-size:13px;font-weight:500;color:#0F1A2E;">Email</label>
+            <input id="f-email"     name="email"     type="email" class="form-input" placeholder="your@email.com" />
+            <span id="err-email" class="field-error">Please enter a valid email address.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-company" style="font-size:13px;font-weight:500;color:#0F1A2E;">Company</label>
+            <input id="f-company"   name="company"   type="text"  class="form-input" placeholder="Your company name" />
+            <span id="err-company" class="field-error">Please enter your company name.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-challenge" style="font-size:13px;font-weight:500;color:#0F1A2E;">Challenge</label>
+            <textarea id="f-challenge" name="challenge" rows="5" class="form-input" placeholder="Tell us about your challenge. What are you working on, and where do you need help?"></textarea>
+            <span id="err-challenge" class="field-error">Please describe your challenge.</span>
+          </div>
+
+          <div class="form-field">
+            <label for="f-source" style="font-size:13px;font-weight:500;color:#0F1A2E;">How did you hear about us?</label>
+            <select id="f-source" name="source" class="form-input">
+              <option value="">Please select...</option>
+              <option value="Google">Google</option>
+              <option value="LinkedIn">LinkedIn</option>
+              <option value="Referral">Referral</option>
+              <option value="Event">Event</option>
+              <option value="Other">Other</option>
+            </select>
+            <span id="err-source" class="field-error">Please let us know how you found us.</span>
+          </div>
+
+          <div id="form-submit-error" style="display:none;font-size:13px;color:#C0392B;padding:12px 16px;background:rgba(192,57,43,.06);border-radius:6px;border:1px solid rgba(192,57,43,.2);">
+            Something went wrong. Please try again or email us at <a href="mailto:info@goldwhite.co.uk" style="color:#C0392B;">info@goldwhite.co.uk</a>.
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            style="width:100%;background:#C9A84C;color:#0F1A2E;padding:16px 24px;border:none;border-radius:8px;font-weight:600;font-size:16px;font-family:'DM Sans',sans-serif;cursor:pointer;letter-spacing:.3px;transition:background .3s,transform .2s;text-align:center;"
+            onmouseover="this.style.background='#E0C777'"
+            onmouseout="this.style.background='#C9A84C'"
+          >Send Message →</button>
+        </form>
+
+        <!-- Success state -->
+        <div
+          id="form-success"
+          style="display:none;border:1.5px solid rgba(201,168,76,.4);border-left:3px solid #C9A84C;border-radius:8px;padding:28px 32px;background:rgba(201,168,76,.05);"
+        >
+          <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#0F1A2E;margin-bottom:8px;">Message sent.</div>
+          <p style="font-size:15px;line-height:1.7;color:#4A5568;">Thank you. We'll be in touch within 24 hours.</p>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: BOOK A CALL ── -->
+      <div style="display:flex;flex-direction:column;gap:36px;">
+        <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:0;">Or book a call directly</div>
+
+        <!-- Calendly card -->
+        <div style="background:#F8F6F1;border:1px solid #E2E0DB;border-radius:12px;padding:40px;">
+          <h2 style="font-family:'Playfair Display',serif;font-size:24px;font-weight:600;color:#0F1A2E;margin-bottom:14px;">Prefer to talk?</h2>
+          <p style="font-size:15px;line-height:1.75;color:#4A5568;margin-bottom:28px;">Book a 30-minute strategy call with one of our directors. No pitch, no obligation. Just an honest assessment of how we can help.</p>
+          <!-- TODO: Replace with your actual Calendly link -->
+          <a
+            href="https://calendly.com/david-goldwhite/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.3px;transition:all .3s;width:100%;justify-content:center;"
+            onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)'"
+            onmouseout="this.style.background='#C9A84C';this.style.transform='none'"
+          >Book a Call →</a>
+        </div>
+
+        <!-- Contact details -->
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          {[
+            { label: 'Email',          value: 'info@goldwhite.co.uk',  href: 'mailto:info@goldwhite.co.uk' },
+            { label: 'Location',       value: 'London, United Kingdom', href: null },
+            { label: 'Response time',  value: 'Within 24 hours',       href: null },
+          ].map(({ label, value, href }) => (
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <span style="width:5px;height:5px;border-radius:50%;background:#C9A84C;margin-top:7px;flex-shrink:0;display:inline-block;"></span>
+              <div>
+                <span style="font-size:12px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:#8896AB;display:block;margin-bottom:2px;">{label}</span>
+                {href ? (
+                  <a href={href} style="font-size:14px;color:#0F1A2E;text-decoration:none;font-weight:500;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='#0F1A2E'">{value}</a>
+                ) : (
+                  <span style="font-size:14px;color:#0F1A2E;font-weight:500;">{value}</span>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div style="border-top:1px solid #E2E0DB;padding-top:24px;">
+          <p style="font-size:14px;line-height:1.7;color:#8896AB;">Prefer to connect on LinkedIn? Find us at the links in the footer.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ WHAT TO EXPECT ═══ -->
+  <section class="contact-expect" style="padding:100px 60px;background:#F8F6F1;">
+    <div style="max-width:800px;margin:0 auto;">
+      <div class="reveal" style="text-align:center;margin-bottom:64px;">
+        <div style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">What happens next</div>
+        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:600;color:#0F1A2E;">No pitch. No obligation. Just an honest conversation.</h2>
+      </div>
+
+      <!-- Steps with connector line -->
+      <div style="position:relative;">
+        <!-- Dotted connector (desktop only) -->
+        <div
+          class="step-connector"
+          aria-hidden="true"
+          style="position:absolute;top:26px;left:calc(100%/6);right:calc(100%/6);border-top:2px dashed rgba(201,168,76,.25);pointer-events:none;"
+        ></div>
+
+        <div class="steps-grid reveal">
+          {steps.map(({ num, title, desc }) => (
+            <div style="text-align:center;padding:0 20px;">
+              <div style="width:52px;height:52px;border-radius:50%;background:#fff;border:2px solid rgba(201,168,76,.35);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;position:relative;z-index:1;">
+                <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#C9A84C;">{num}</span>
+              </div>
+              <h3 style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#0F1A2E;margin-bottom:10px;">{title}</h3>
+              <p style="font-size:14px;line-height:1.75;color:#4A5568;">{desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<script is:inline>
+(function () {
+  var form       = document.getElementById('contact-form');
+  var successBox = document.getElementById('form-success');
+  var submitErr  = document.getElementById('form-submit-error');
+  var submitBtn  = document.getElementById('submit-btn');
+  if (!form) return;
+
+  function val(id)  { return document.getElementById(id).value.trim(); }
+  function err(id, show) {
+    var el = document.getElementById(id);
+    el.classList.toggle('visible', show);
+    var input = el.previousElementSibling;
+    if (input && input.classList) input.classList.toggle('invalid', show);
+  }
+
+  function validate() {
+    var ok = true;
+    var name    = val('f-name');
+    var email   = val('f-email');
+    var company = val('f-company');
+    var chall   = val('f-challenge');
+    var source  = val('f-source');
+
+    if (!name)                                             { err('err-name',      true);  ok = false; } else { err('err-name',      false); }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err('err-email', true);  ok = false; } else { err('err-email',     false); }
+    if (!company)                                          { err('err-company',   true);  ok = false; } else { err('err-company',   false); }
+    if (!chall)                                            { err('err-challenge', true);  ok = false; } else { err('err-challenge', false); }
+    if (!source)                                           { err('err-source',    true);  ok = false; } else { err('err-source',    false); }
+    return ok;
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!validate()) return;
+
+    submitBtn.textContent = 'Sending…';
+    submitBtn.disabled = true;
+    if (submitErr) submitErr.style.display = 'none';
+
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { Accept: 'application/json' },
+    })
+      .then(function (res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          if (successBox) successBox.style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Send Message →';
+          submitBtn.disabled = false;
+          if (submitErr) submitErr.style.display = 'block';
+        }
+      })
+      .catch(function () {
+        submitBtn.textContent = 'Send Message →';
+        submitBtn.disabled = false;
+        if (submitErr) submitErr.style.display = 'block';
+      });
+  });
+})();
+</script>

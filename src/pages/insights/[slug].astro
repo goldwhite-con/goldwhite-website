@@ -1,0 +1,222 @@
+---
+import { getCollection, render, type CollectionEntry } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog');
+  return allPosts.map(post => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      related: allPosts
+        .filter(p => p.id !== post.id)
+        .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+        .slice(0, 2),
+    },
+  }));
+}
+
+interface Props {
+  post:    CollectionEntry<'blog'>;
+  related: CollectionEntry<'blog'>[];
+}
+
+const { post, related } = Astro.props;
+const { Content } = await render(post);
+
+const dateStr = post.data.date.toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+
+const relDateStr = (d: Date) =>
+  d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+---
+
+<BaseLayout
+  title={`${post.data.title} | GoldWhite Insights`}
+  description={post.data.summary}
+>
+
+  <style>
+    /* Reading layout */
+    .post-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 80px 60px 80px;
+    }
+
+    /* Prose styles — :global() so they apply to <Content /> rendered HTML */
+    .prose :global(h2) {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 600;
+      color: #0F1A2E;
+      line-height: 1.2;
+      margin: 48px 0 16px;
+    }
+    .prose :global(h3) {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 600;
+      color: #0F1A2E;
+      line-height: 1.3;
+      margin: 36px 0 12px;
+    }
+    .prose :global(p) {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #4A5568;
+      margin-bottom: 22px;
+    }
+    .prose :global(blockquote) {
+      border-left: 3px solid #C9A84C;
+      padding: 4px 0 4px 24px;
+      margin: 32px 0;
+      font-style: italic;
+      color: #0F1A2E;
+    }
+    .prose :global(blockquote p) {
+      color: #0F1A2E;
+      font-size: 18px;
+    }
+    .prose :global(code) {
+      background: #F8F6F1;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-size: 14px;
+      color: #0F1A2E;
+    }
+    .prose :global(pre) {
+      background: #F8F6F1;
+      border: 1px solid #E2E0DB;
+      border-radius: 8px;
+      padding: 20px 24px;
+      overflow-x: auto;
+      margin: 24px 0;
+    }
+    .prose :global(pre code) {
+      background: none;
+      padding: 0;
+      font-size: 14px;
+    }
+    .prose :global(a) {
+      color: #C9A84C;
+      text-decoration: underline;
+      text-decoration-color: rgba(201,168,76,.35);
+      transition: color .2s, text-decoration-color .2s;
+    }
+    .prose :global(a:hover) {
+      color: #E0C777;
+      text-decoration-color: #E0C777;
+    }
+    .prose :global(ul),
+    .prose :global(ol) {
+      margin: 8px 0 24px 24px;
+    }
+    .prose :global(li) {
+      font-size: 17px;
+      line-height: 1.85;
+      color: #4A5568;
+      margin-bottom: 8px;
+    }
+    .prose :global(hr) {
+      border: none;
+      border-top: 1px solid #E2E0DB;
+      margin: 48px 0;
+    }
+    .prose :global(strong) { color: #0F1A2E; font-weight: 600; }
+
+    /* Related post cards */
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    @media (max-width: 640px) {
+      .post-wrap    { padding: 60px 24px 60px; }
+      .related-grid { grid-template-columns: 1fr; }
+      .post-cta     { padding: 40px 24px !important; flex-direction: column !important; gap: 16px !important; align-items: flex-start !important; }
+    }
+  </style>
+
+  <div style="background:#fff;min-height:100vh;">
+    <div class="post-wrap">
+
+      <!-- Back link -->
+      <a
+        href="/insights"
+        style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:rgba(201,168,76,.7);text-decoration:none;letter-spacing:.3px;margin-bottom:40px;transition:color .3s;"
+        onmouseover="this.style.color='#C9A84C'"
+        onmouseout="this.style.color='rgba(201,168,76,.7)'"
+      >← Back to Insights</a>
+
+      <!-- Tag pills -->
+      {post.data.tags && post.data.tags.length > 0 && (
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;">
+          {post.data.tags.map(tag => (
+            <span style="font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#C9A84C;background:rgba(201,168,76,.12);padding:4px 10px;border-radius:4px;">{tag}</span>
+          ))}
+        </div>
+      )}
+
+      <!-- Title -->
+      <h1 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3.6vw,42px);font-weight:600;line-height:1.15;color:#0F1A2E;margin-bottom:20px;">{post.data.title}</h1>
+
+      <!-- Author & date row -->
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <span style="font-size:13px;font-weight:600;color:#C9A84C;">{post.data.author}</span>
+        <span style="width:3px;height:3px;border-radius:50%;background:#C9A84C;display:inline-block;opacity:.5;"></span>
+        <span style="font-size:13px;color:#8896AB;">{dateStr}</span>
+      </div>
+
+      <!-- Gold divider -->
+      <div style="width:48px;height:2px;background:#C9A84C;margin-bottom:48px;"></div>
+
+      <!-- Post body -->
+      <article class="prose">
+        <Content />
+      </article>
+
+      <!-- Divider -->
+      <div style="border-top:1px solid #E2E0DB;margin:60px 0 48px;"></div>
+
+      <!-- Related posts -->
+      {related.length > 0 && (
+        <div style="margin-bottom:0;">
+          <div style="font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#C9A84C;margin-bottom:20px;">More from GoldWhite</div>
+          <div class="related-grid">
+            {related.map(p => (
+              <a
+                href={`/insights/${p.id}`}
+                style="background:#F8F6F1;border:1px solid #E2E0DB;border-radius:10px;padding:24px;text-decoration:none;display:block;transition:all .3s;"
+                onmouseover="this.style.borderColor='#C9A84C';this.style.transform='translateY(-2px)'"
+                onmouseout="this.style.borderColor='#E2E0DB';this.style.transform='none'"
+              >
+                <div style="font-family:'Playfair Display',serif;font-size:16px;font-weight:600;color:#0F1A2E;margin-bottom:8px;line-height:1.3;">{p.data.title}</div>
+                <div style="font-size:12px;color:#8896AB;">{p.data.author} · {relDateStr(p.data.date)}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </div>
+
+  <!-- CTA band -->
+  <div
+    class="post-cta"
+    style="background:#F8F6F1;border-top:1px solid #E2E0DB;padding:36px 60px;display:flex;justify-content:space-between;align-items:center;gap:24px;"
+  >
+    <p style="font-family:'Playfair Display',serif;font-size:20px;font-weight:600;color:#0F1A2E;margin:0;">Enjoyed this? Book a strategy call.</p>
+    <a
+      href="/contact"
+      style="flex-shrink:0;display:inline-flex;align-items:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:14px 28px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;letter-spacing:.3px;transition:all .3s;"
+      onmouseover="this.style.background='#E0C777';this.style.transform='translateY(-2px)'"
+      onmouseout="this.style.background='#C9A84C';this.style.transform='none'"
+    >Book a Strategy Call →</a>
+  </div>
+
+</BaseLayout>

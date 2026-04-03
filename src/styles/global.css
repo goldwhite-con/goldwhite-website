@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+  --color-navy:          #0F1A2E;
+  --color-navy-mid:      #182640;
+  --color-navy-light:    #213352;
+  --color-gold:          #C9A84C;
+  --color-gold-light:    #E0C777;
+  --color-cream:         #F8F6F1;
+  --color-bg-section:    #F2F0EB;
+  --color-text-primary:  #0F1A2E;
+  --color-text-secondary:#4A5568;
+  --color-text-light:    #8896AB;
+  --color-border:        #E2E0DB;
+
+  --font-sans:  'DM Sans', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Scroll reveal ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible          { opacity: 1; transform: translateY(0); }
+.reveal-delay-1          { transition-delay: 0.1s; }
+.reveal-delay-2          { transition-delay: 0.2s; }
+.reveal-delay-3          { transition-delay: 0.3s; }
+
+/* ── Hero keyframes ── */
+@keyframes heroPulse {
+  0%,100% { transform: scale(1);   opacity: 1; }
+  50%     { transform: scale(1.1); opacity: 0.7; }
+}
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim-1 { opacity: 0; animation: fadeUp .8s ease .2s forwards; }
+.anim-2 { opacity: 0; animation: fadeUp .8s ease .4s forwards; }
+.anim-3 { opacity: 0; animation: fadeUp .8s ease .6s forwards; }
+.anim-4 { opacity: 0; animation: fadeUp .8s ease .8s forwards; }
+.pulse-slow    { animation: heroPulse  8s ease-in-out infinite; }
+.pulse-slow-r  { animation: heroPulse 12s ease-in-out infinite reverse; }
+
+/* ── Hero geometric visual ── */
+@keyframes spinCW  { to { transform: rotate(360deg);  } }
+@keyframes spinCCW { to { transform: rotate(-360deg); } }
+@keyframes floatY  {
+  0%, 100% { transform: translateY(0px);   }
+  50%      { transform: translateY(-10px); }
+}
+
+.geo-spin-cw  { animation: spinCW  80s  linear infinite; }
+.geo-spin-ccw { animation: spinCCW 110s linear infinite; }
+
+.float-a { animation: floatY 4.2s ease-in-out          infinite; }
+.float-b { animation: floatY 5.0s ease-in-out 1.2s     infinite; }
+.float-c { animation: floatY 4.6s ease-in-out 0.5s     infinite; }
+.float-d { animation: floatY 5.5s ease-in-out 2.0s     infinite; }
+.float-e { animation: floatY 4.8s ease-in-out 1.6s     infinite; }
+
+/* ── Hero two-col responsive ── */
+@media (max-width: 1024px) {
+  .hero-split  { display: block !important; }
+  .hero-visual { display: none  !important; }
+}
+
+/* ── Service card top-bar hover ── */
+.service-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s ease;
+}
+.service-card:hover::before { transform: scaleX(1); }
+
+/* ── Hero grid mask ── */
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 20%, transparent 80%);
+}
+
+/* ── Nav link underline ── */
+.nav-link {
+  position: relative;
+  color: rgba(255,255,255,.7);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: .3px;
+  transition: color .3s;
+}
+.nav-link:hover { color: #fff; }
+.nav-link::after {
+  content: '';
+  position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 1.5px;
+  background: var(--color-gold);
+  transition: width .3s ease;
+}
+.nav-link:hover::after { width: 100%; }
+.nav-link--active { color: #fff !important; }
+.nav-link--active::after { width: 100% !important; }
