@@ -123,3 +123,11 @@ body {
 .nav-link:hover::after { width: 100%; }
 .nav-link--active { color: #fff !important; }
 .nav-link--active::after { width: 100% !important; }
+
+/* ─── Shared page-level responsive helpers ─── */
+/* Apply these classes to section elements to get consistent mobile padding */
+@media (max-width: 767px) {
+  .pg-hero    { padding: 120px 20px 64px !important; min-height: unset !important; }
+  .pg-section { padding: 64px 20px !important; }
+  .pg-cta     { padding: 72px 20px !important; }
+}

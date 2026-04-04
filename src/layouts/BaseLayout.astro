@@ -37,7 +37,7 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
         GoldWhite
       </a>
 
-      <!-- Links -->
+      <!-- Desktop links -->
       <div style="display:flex;align-items:center;gap:36px;" id="nav-links">
         <a href="/services"     class={nav('/services')}>Services</a>
         <a href="/sectors"      class={nav('/sectors')}>Sectors</a>
@@ -52,14 +52,39 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
           onmouseout="this.style.background='#C9A84C';this.style.transform='none'"
         >Book a Call</a>
       </div>
+
+      <!-- Hamburger button (mobile only) -->
+      <button id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+        <span class="ham-bar"></span>
+      </button>
     </nav>
+
+    <!-- ═══ MOBILE MENU ═══ -->
+    <div id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+      <div class="mob-links">
+        <a href="/services"     class={"mob-nav-link " + nav('/services')}>Services</a>
+        <a href="/sectors"      class={"mob-nav-link " + nav('/sectors')}>Sectors</a>
+        <a href="/case-studies" class={"mob-nav-link " + nav('/case-studies')}>Case Studies</a>
+        <a href="/insights"     class={"mob-nav-link " + nav('/insights')}>Insights</a>
+        <a href="/team"         class={"mob-nav-link " + nav('/team')}>Team</a>
+        <a href="/contact"      class={"mob-nav-link " + nav('/contact')}>Contact</a>
+      </div>
+      <div style="padding-top:20px;">
+        <a
+          href="/contact"
+          style="display:flex;align-items:center;justify-content:center;gap:8px;background:#C9A84C;color:#0F1A2E;padding:16px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:15px;letter-spacing:.3px;"
+        >Book a Strategy Call →</a>
+      </div>
+    </div>
 
     <!-- Page content -->
     <slot />
 
     <!-- ═══ FOOTER ═══ -->
-    <footer style="background:#0F1A2E;border-top:1px solid rgba(255,255,255,.06);padding:64px 60px 40px;">
-      <div style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;max-width:1200px;">
+    <footer class="footer-outer" style="background:#0F1A2E;border-top:1px solid rgba(255,255,255,.06);padding:64px 60px 40px;">
+      <div class="footer-grid" style="display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;max-width:1200px;">
 
         <!-- Brand -->
         <div>
@@ -76,7 +101,7 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
             ['Go-to-Market',      '/services#gtm'],
             ['Operations',        '/services#operations'],
           ].map(([label, href]) => (
-            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
+            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;min-height:44px;display:flex;align-items:center;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
           ))}
         </div>
 
@@ -89,7 +114,7 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
             ['Insights',     '/insights'],
             ['Contact',      '/contact'],
           ].map(([label, href]) => (
-            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
+            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;min-height:44px;display:flex;align-items:center;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
           ))}
         </div>
 
@@ -101,16 +126,16 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
             ['info@goldwhite.co.uk',  'mailto:info@goldwhite.co.uk'],
             ['Book a Call',           '/contact'],
           ].map(([label, href]) => (
-            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
+            <a href={href} style="display:block;font-size:14px;color:rgba(255,255,255,.4);text-decoration:none;margin-bottom:12px;min-height:44px;display:flex;align-items:center;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.4)'">{label}</a>
           ))}
         </div>
 
       </div>
 
       <!-- Bottom bar -->
-      <div style="border-top:1px solid rgba(255,255,255,.06);padding-top:32px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;">
+      <div class="footer-bottom" style="border-top:1px solid rgba(255,255,255,.06);padding-top:32px;display:flex;justify-content:space-between;align-items:center;max-width:1200px;">
         <p style="font-size:13px;color:rgba(255,255,255,.3);">© 2026 GoldWhite Ltd. All rights reserved.</p>
-        <div>
+        <div class="footer-bottom-links">
           <a href="/privacy" style="font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;margin-left:24px;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Privacy Policy</a>
           <a href="/terms"   style="font-size:13px;color:rgba(255,255,255,.3);text-decoration:none;margin-left:24px;transition:color .3s;" onmouseover="this.style.color='#C9A84C'" onmouseout="this.style.color='rgba(255,255,255,.3)'">Terms &amp; Conditions</a>
         </div>
@@ -128,3 +153,106 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
 
   </body>
 </html>
+
+<!-- ═══ NAV + FOOTER RESPONSIVE STYLES ═══ -->
+<style is:global>
+  /* ── Hamburger button ── */
+  #hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px 4px;
+    flex-direction: column;
+    gap: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  .ham-bar {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: #C9A84C;
+    border-radius: 2px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+  #hamburger.open .ham-bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #hamburger.open .ham-bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  #hamburger.open .ham-bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile menu ── */
+  #mobile-menu {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    z-index: 899;
+    background: rgba(9, 15, 28, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 8px 20px 28px;
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+  #mobile-menu.open { display: block; }
+
+  .mob-nav-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.75);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    min-height: 52px;
+    transition: color 0.25s;
+  }
+  .mob-nav-link:hover { color: #fff; }
+  .mob-nav-link.nav-link--active { color: #fff; }
+
+  /* ── Mobile breakpoint ── */
+  @media (max-width: 767px) {
+    #main-nav  { padding: 0 20px !important; }
+    #nav-links { display: none !important; }
+    #hamburger { display: flex !important; }
+  }
+
+  /* ── Footer responsive ── */
+  @media (max-width: 767px) {
+    .footer-outer { padding: 48px 20px 32px !important; }
+    .footer-grid  { grid-template-columns: 1fr !important; gap: 32px !important; }
+    .footer-bottom {
+      flex-direction: column !important;
+      gap: 16px !important;
+      align-items: flex-start !important;
+    }
+    .footer-bottom-links a { margin-left: 0 !important; margin-right: 20px; }
+  }
+</style>
+
+<script is:inline>
+(function () {
+  var ham  = document.getElementById('hamburger');
+  var menu = document.getElementById('mobile-menu');
+  if (!ham || !menu) return;
+
+  ham.addEventListener('click', function () {
+    var open = menu.classList.toggle('open');
+    ham.classList.toggle('open', open);
+    ham.setAttribute('aria-expanded', String(open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  });
+
+  menu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      menu.classList.remove('open');
+      ham.classList.remove('open');
+      ham.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+})();
+</script>
