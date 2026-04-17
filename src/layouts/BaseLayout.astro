@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
 
 interface Props {
   title?: string;
@@ -23,6 +24,51 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <title>{title}</title>
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "@id": "https://goldwhite.co.uk/#organization",
+      "name": "GoldWhite",
+      "legalName": "GoldWhite Ltd",
+      "url": "https://goldwhite.co.uk",
+      "logo": "https://goldwhite.co.uk/favicon.svg",
+      "description": "GoldWhite is a London-based boutique STEM advisory firm helping startups and technology companies with fundraising, product development, regulatory pathways, go-to-market strategy, and operations.",
+      "email": "info@goldwhite.co.uk",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "London",
+        "addressCountry": "GB"
+      },
+      "areaServed": ["GB", "EU"],
+      "foundingDate": "2024",
+      "numberOfEmployees": { "@type": "QuantitativeValue", "value": 3 },
+      "knowsAbout": [
+        "STEM startup advisory",
+        "fundraising strategy",
+        "healthtech",
+        "medtech",
+        "diagnostics",
+        "regulatory compliance",
+        "CE marking",
+        "FDA clearance",
+        "go-to-market strategy",
+        "product strategy"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/goldwhite"
+      ]
+    }} />
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://goldwhite.co.uk/#website",
+      "name": "GoldWhite",
+      "url": "https://goldwhite.co.uk",
+      "publisher": {
+        "@id": "https://goldwhite.co.uk/#organization"
+      }
+    }} />
+    <slot name="head" />
   </head>
   <body>
 

@@ -1,11 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SchemaMarkup from '../../components/SchemaMarkup.astro';
 ---
 
 <BaseLayout
   title="Regulatory Approval & Compliance | GoldWhite Consulting"
   description="CE marking and FDA clearance strategy for healthtech, medtech, and diagnostics startups. Regulatory pathway planning integrated with your commercial and fundraising strategy."
 >
+  <Fragment slot="head">
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://goldwhite.co.uk/services/regulatory-approval-compliance#service",
+      "name": "Regulatory Approval & Compliance",
+      "description": "GoldWhite guides STEM companies through regulatory pathways including CE marking, UKCA, FDA clearance, and ISO 13485 compliance. Track record includes CE-marked and FDA-cleared products.",
+      "provider": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/services/regulatory-approval-compliance",
+      "serviceType": "Regulatory Compliance Advisory",
+      "areaServed": ["GB", "EU"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Medtech, diagnostics, and healthtech companies seeking CE marking or FDA clearance"
+      }
+    }} />
+  </Fragment>
 
   <!-- ═══ HERO ═══ -->
   <section class="pg-hero" style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">

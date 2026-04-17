@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
 
 const team = [
   {
@@ -85,8 +86,124 @@ const team = [
 
 <BaseLayout
   title="Our Team | GoldWhite Consulting | PhDs from Cambridge & Imperial, Ex-Goldman Sachs"
-  description="Meet our directors. PhD-qualified experts from Cambridge, Imperial, and Goldman Sachs with experience at GSK, the UK Government, and leading technology startups."
+  description="Meet the GoldWhite directors. PhD-qualified experts from Cambridge and Imperial with experience across pharmaceutical R&D, investment banking, and leading technology startups."
 >
+  <Fragment slot="head">
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://goldwhite.co.uk/team#marc-goldfinger",
+      "name": "Marc Goldfinger",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Director, Life Sciences & Health-Tech Strategy",
+      "worksFor": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/team",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "Imperial College London",
+          "sameAs": "https://www.imperial.ac.uk"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "King's College London",
+          "sameAs": "https://www.kcl.ac.uk"
+        },
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "McGill University",
+          "sameAs": "https://www.mcgill.ca"
+        }
+      ],
+      "knowsAbout": [
+        "life sciences",
+        "healthtech",
+        "AI diagnostics",
+        "clinical biomarker strategy",
+        "regulatory affairs",
+        "CE marking",
+        "FDA clearance",
+        "precision medicine",
+        "oncology",
+        "neuroscience"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "PhD in Clinical Neuroscience",
+          "credentialCategory": "degree",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "Imperial College London" }
+        }
+      ]
+    }} />
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://goldwhite.co.uk/team#david-weiss",
+      "name": "David Weiss",
+      "honorificSuffix": "PhD",
+      "jobTitle": "Director, Fundraising & Commercial Strategy",
+      "worksFor": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/team",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Cambridge",
+          "sameAs": "https://www.cam.ac.uk"
+        }
+      ],
+      "knowsAbout": [
+        "startup fundraising",
+        "venture capital",
+        "pitch strategy",
+        "financial modelling",
+        "STEM commercialisation",
+        "grant applications",
+        "investment banking",
+        "M&A",
+        "equity derivatives"
+      ],
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "PhD in Engineering",
+          "credentialCategory": "degree",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "University of Cambridge" }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "MPhil (Distinction), Judge Business School",
+          "credentialCategory": "degree",
+          "recognizedBy": { "@type": "CollegeOrUniversity", "name": "University of Cambridge" }
+        }
+      ]
+    }} />
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "@id": "https://goldwhite.co.uk/team#jonas-weiss",
+      "name": "Jonas Weiss",
+      "jobTitle": "Director, Product & Operations",
+      "worksFor": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/team",
+      "alumniOf": [
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "UCL Bartlett School of Architecture",
+          "sameAs": "https://www.ucl.ac.uk/bartlett"
+        }
+      ],
+      "knowsAbout": [
+        "product strategy",
+        "operations",
+        "architecture",
+        "proptech",
+        "startup operations",
+        "product management",
+        "UX"
+      ]
+    }} />
+  </Fragment>
 
   <style>
     /* Full-bleed two-column profile grid */

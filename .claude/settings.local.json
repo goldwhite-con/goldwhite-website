@@ -12,7 +12,10 @@
       "Bash(npm install:*)",
       "Bash(gh auth:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git:*)",
+      "Bash(grep -E \"\\\\.\\(js|ts|json|css\\)$|astro|tail\")"
     ]
   }
 }

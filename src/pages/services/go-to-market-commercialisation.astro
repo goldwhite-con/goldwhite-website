@@ -1,11 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SchemaMarkup from '../../components/SchemaMarkup.astro';
 ---
 
 <BaseLayout
   title="Go-to-Market & Commercialisation | GoldWhite Consulting"
   description="Market analysis, launch strategy, stakeholder management, and partnership development for STEM and health-tech startups ready to reach market."
 >
+  <Fragment slot="head">
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://goldwhite.co.uk/services/go-to-market-commercialisation#service",
+      "name": "Go-to-Market & Commercialisation",
+      "description": "GoldWhite advises STEM startups on go-to-market strategy, commercial positioning, sales process design, partnership development, and market entry.",
+      "provider": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/services/go-to-market-commercialisation",
+      "serviceType": "Go-to-Market Advisory",
+      "areaServed": ["GB", "EU"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "STEM startups preparing for commercial launch"
+      }
+    }} />
+  </Fragment>
 
   <!-- ═══ HERO ═══ -->
   <section class="pg-hero" style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">

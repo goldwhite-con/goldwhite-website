@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
 import { TrendingUp, FlaskConical, Rocket, Settings2, ShieldCheck } from 'lucide-astro';
 
 const services = [
@@ -142,6 +143,62 @@ const engagement = [
   title="Services | GoldWhite Consulting | Fundraising, Scientific Strategy, Regulatory & Operations"
   description="Fundraising strategy, scientific and product strategy, regulatory pathway planning, go-to-market, and operations advisory for STEM, healthtech, medtech, and diagnostics startups."
 >
+  <Fragment slot="head">
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What services does GoldWhite offer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoldWhite offers five core services: Fundraising & Financial Strategy, Scientific & Product Strategy, Go-to-Market & Commercialisation, Operations & Management Advisory, and Regulatory Approval & Compliance. We work primarily with STEM, healthtech, medtech, and diagnostics startups at pre-seed to Series A stage."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How much has GoldWhite raised for clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoldWhite's directors have raised over £12M for clients across investment rounds and grant applications."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does GoldWhite have experience with CE marking and FDA clearance?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. GoldWhite's team has a direct track record of achieving CE marking for six AI-driven biomarker products and FDA clearance for a medical imaging product (MRCP+). We guide clients through regulatory pathways including MDR, UKCA, and FDA 510(k) submissions."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who are GoldWhite's typical clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Our primary clients are founders and leadership teams at early-to-growth-stage STEM startups — particularly in healthtech, medtech, and diagnostics — typically at pre-seed to Series A. We also work with R&D directors at mid-size technology companies and with accelerators and investors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is GoldWhite based?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "GoldWhite is based in London, United Kingdom. We work with clients across the UK and Europe."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I engage GoldWhite?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The simplest first step is to book a free 30-minute strategy call with one of our directors at goldwhite.co.uk/contact. You can also send an enquiry via the contact form. We respond within 24 hours."
+          }
+        }
+      ]
+    }} />
+  </Fragment>
 
   <style>
     .svc-grid {

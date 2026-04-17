@@ -1,11 +1,29 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import SchemaMarkup from '../../components/SchemaMarkup.astro';
 ---
 
 <BaseLayout
   title="Scientific & Product Strategy | GoldWhite Consulting"
   description="Scientific rationale, regulatory pathway planning, biomarker strategy, clinical trial design, and AI/ML integration for STEM and health-tech startups."
 >
+  <Fragment slot="head">
+    <SchemaMarkup schema={{
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "@id": "https://goldwhite.co.uk/services/scientific-product-strategy#service",
+      "name": "Scientific & Product Strategy",
+      "description": "GoldWhite provides scientific and product strategy for STEM companies, including clinical validation planning, biomarker strategy, product roadmapping, and KOL engagement.",
+      "provider": { "@id": "https://goldwhite.co.uk/#organization" },
+      "url": "https://goldwhite.co.uk/services/scientific-product-strategy",
+      "serviceType": "Scientific & Product Advisory",
+      "areaServed": ["GB", "EU"],
+      "audience": {
+        "@type": "Audience",
+        "audienceType": "Healthtech, medtech, diagnostics, and deep-tech startups"
+      }
+    }} />
+  </Fragment>
 
   <!-- ═══ HERO ═══ -->
   <section class="pg-hero" style="min-height:70vh;padding:160px 60px 100px;background:#0F1A2E;position:relative;overflow:hidden;display:flex;align-items:center;">
