@@ -142,6 +142,77 @@ const nav = (href: string) => path === href || path.startsWith(href + '/') ? 'na
       </div>
     </footer>
 
+    <!-- ═══ COOKIE CONSENT BANNER ═══ -->
+    <div id="cookie-overlay" style="position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.5);backdrop-filter:blur(2px);"></div>
+    <div id="cookie-banner" role="dialog" aria-modal="true" aria-label="Cookie consent" style="position:fixed;bottom:0;left:0;right:0;z-index:9999;background:rgba(15,26,46,0.97);border-top:3px solid #C9A84C;box-shadow:0 -4px 24px rgba(0,0,0,0.4);padding:20px 60px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+      <p style="font-size:14px;color:rgba(255,255,255,.65);margin:0;max-width:600px;line-height:1.6;">
+        We use cookies to understand how visitors use our site and to improve your experience. You can accept all cookies or limit to essential cookies only.
+        <a href="/privacy" style="color:#C9A84C;text-decoration:underline;margin-left:4px;">Privacy Policy</a>
+      </p>
+      <div style="display:flex;gap:12px;flex-shrink:0;">
+        <button id="cookie-essential" style="background:none;border:none;color:rgba(255,255,255,.4);padding:0;font-size:12px;font-weight:400;cursor:pointer;text-decoration:underline;">Essential Only</button>
+        <button id="cookie-accept"    style="background:#C9A84C;border:1px solid #C9A84C;color:#0F1A2E;padding:10px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s;">Accept All</button>
+      </div>
+    </div>
+
+    <!-- ═══ GOOGLE ANALYTICS 4 (consent-gated) ═══ -->
+    <script is:inline>
+    (function () {
+      var GA_ID = 'G-TKSPTS82BZ';
+      var CONSENT_KEY = 'gw_cookie_consent';
+
+      function loadGA() {
+        if (window.__gaLoaded) return;
+        window.__gaLoaded = true;
+        var s = document.createElement('script');
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        s.async = true;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = function () { window.dataLayer.push(arguments); };
+        window.gtag('js', new Date());
+        window.gtag('config', GA_ID);
+      }
+
+      document.addEventListener('DOMContentLoaded', function () {
+        var banner  = document.getElementById('cookie-banner');
+        var overlay = document.getElementById('cookie-overlay');
+        var stored  = localStorage.getItem(CONSENT_KEY);
+
+        function hide() {
+          banner.style.display  = 'none';
+          overlay.style.display = 'none';
+        }
+
+        function show() {
+          banner.style.display  = '';
+          overlay.style.display = '';
+        }
+
+        // Always start hidden
+        hide();
+
+        if (stored === 'all') {
+          loadGA();
+        } else if (stored !== 'essential') {
+          // No stored preference — show banner and overlay
+          show();
+
+          document.getElementById('cookie-accept').addEventListener('click', function () {
+            localStorage.setItem(CONSENT_KEY, 'all');
+            hide();
+            loadGA();
+          });
+
+          document.getElementById('cookie-essential').addEventListener('click', function () {
+            localStorage.setItem(CONSENT_KEY, 'essential');
+            hide();
+          });
+        }
+      });
+    })();
+    </script>
+
     <!-- ═══ SCROLL REVEAL ═══ -->
     <script>
       const observer = new IntersectionObserver(
