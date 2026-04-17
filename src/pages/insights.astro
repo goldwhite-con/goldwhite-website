@@ -8,15 +8,6 @@ const posts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueO
 const formatDate = (d: Date) =>
   d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
 
-const topics = [
-  { title: 'How to Raise a Seed Round for a Health-Tech Startup in the UK',            author: 'David Weiss' },
-  { title: 'The Regulatory Pathway for AI Medical Devices in the UK and EU',            author: 'Marc Goldfinger' },
-  { title: 'Why Your Pitch Deck Is Not Getting Meetings: A Fundraiser\'s Perspective',  author: 'David Weiss' },
-  { title: 'Biomarker Strategy for Early-Stage Drug Development: Where to Start',       author: 'Marc Goldfinger' },
-  { title: 'From Lab to Launch: 5 Lessons From Taking a Health-Tech Product to Market', author: 'GoldWhite Team' },
-  { title: 'What Founder-Led Businesses Get Wrong About Operational Scale',             author: 'Jonas Weiss' },
-  { title: 'The Fractional Executive: When to Hire a Part-Time CFO, CTO, or COO',      author: 'David Weiss' },
-];
 ---
 
 <BaseLayout
@@ -43,8 +34,7 @@ const topics = [
       .ins-hero    { padding: 140px 24px 80px !important; }
       .ins-posts   { padding: 80px 24px !important; }
       .ins-signup  { padding: 80px 24px !important; }
-      .ins-topics  { padding: 80px 24px !important; }
-      .signup-row  { flex-direction: column; }
+.signup-row  { flex-direction: column; }
     }
   </style>
 
@@ -150,27 +140,6 @@ const topics = [
     </div>
   </section>
 
-  <!-- ═══ TOPICS (COMING SOON) ═══ -->
-  <section class="ins-topics" style="padding:100px 60px;background:#F8F6F1;">
-    <div style="max-width:800px;margin:0 auto;">
-      <div class="reveal" style="margin-bottom:56px;">
-        <div style="font-size:12px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:#C9A84C;margin-bottom:16px;">Coming Soon</div>
-        <h2 style="font-family:'Playfair Display',serif;font-size:clamp(28px,3vw,38px);font-weight:600;color:#0F1A2E;">What we're writing about.</h2>
-      </div>
-
-      <div style="display:flex;flex-direction:column;gap:0;">
-        {topics.map(({ title, author }, i) => (
-          <div
-            class="reveal"
-            style={`padding:20px 0 20px 28px;border-left:3px solid rgba(201,168,76,.25);${i < topics.length - 1 ? 'margin-bottom:4px;border-bottom:1px solid #E2E0DB;' : ''}`}
-          >
-            <div style="font-size:16px;font-weight:600;color:#0F1A2E;line-height:1.4;margin-bottom:6px;">{title}</div>
-            <div style="font-size:13px;color:rgba(201,168,76,.75);font-weight:500;">{author}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
 </BaseLayout>
 
