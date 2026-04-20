@@ -1,0 +1,15 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.goldwhite.co.uk"
+        }
+      ],
+      "destination": "https://goldwhite.co.uk/$1",
+      "permanent": true
+    }
+  ]
+}
