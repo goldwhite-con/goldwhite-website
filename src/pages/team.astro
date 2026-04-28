@@ -1,6 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SchemaMarkup from '../components/SchemaMarkup.astro';
+import { Image } from 'astro:assets';
+import imgMarc from '../assets/images/marc_goldfinger_goldwhite.jpeg';
+import imgDavid from '../assets/images/david_weiss_goldwhite.jpeg';
+import imgJonas from '../assets/images/jonas_weiss_goldwhite.jpeg';
 
 const team = [
   {
@@ -10,7 +14,8 @@ const team = [
     descriptor: 'Scientific and strategic advisory for healthtech, medtech, and regulated innovation, with direct, credentialed experience in clinical AI product development, CE marking, and FDA clearance.',
     qualityBlock: "Marc's work sits at the intersection of technical depth, AI product development, and commercial strategy. He has developed and launched eight CE-marked AI-driven biomarkers for oncology, achieved FDA clearance for an AI imaging platform, and holds a US patent for AI-driven biomarker detection. He supports companies developing clinically relevant and technically demanding products, particularly where AI, evidence, product direction, and regulatory requirements need to be brought into sharp alignment. His perspective is especially valuable for businesses in healthtech, medtech, and diagnostics where scientific and AI credibility are commercial prerequisites.",
     imgSrc: '/images/marc-goldfinger.jpg',
-    imgAlt: 'Marc Goldfinger, PhD',
+    img: imgMarc,
+    imgAlt: 'Marc Goldfinger, Director, GoldWhite Consulting',
     bio: [
       'Marc leads GoldWhite\'s life sciences and health-tech practice. He brings over a decade of experience spanning pharmaceutical R&D, AI-driven diagnostics, clinical biomarker strategy, and regulatory affairs.',
       'As Director of Translational Sciences at a leading global pharmaceutical company, Marc leads enterprise-wide precision medicine strategies across multiple therapeutic areas, partnering with R&D, commercial, and regulatory teams to accelerate drug development. He has developed strategies for clinical trials ranging from Phase 1b to Phase 3 across immunology and fibrosis.',
@@ -35,7 +40,8 @@ const team = [
     descriptor: 'Commercial strategy, fundraising, and investor-facing support for technical companies, with hands-on experience establishing scientific rationale and testing protocols for AI-driven medical devices.',
     qualityBlock: 'David combines technical training in engineering with experience in investment banking and financial markets. He brings a strong commercial and investor-oriented perspective to businesses that need sharper strategic framing, clearer market positioning, and greater fundraising readiness. His background is particularly relevant for technically strong companies that need to communicate more effectively with investors, partners, and stakeholders, without losing the technical credibility that makes them worth backing. He has also established scientific rationale and testing protocols for multiple non-invasive AI-driven medical devices, giving him a practical understanding of what it takes to build and validate AI products in regulated environments.',
     imgSrc: '/images/david-weiss.jpg',
-    imgAlt: 'David Weiss, PhD',
+    img: imgDavid,
+    imgAlt: 'David Weiss, Director, GoldWhite Consulting',
     bio: [
       'David leads GoldWhite\'s fundraising and commercial advisory practice. He combines an unusual depth of experience spanning academic engineering research, investment banking, derivatives trading, and startup founding to help STEM companies raise capital and build sustainable businesses.',
       'Before founding GoldWhite, David was an equity derivatives trader at Goldman Sachs in London, structuring derivative products for the German issuance market, and an M&A analyst at Leonardo & Co. in Frankfurt, where he worked on transactions including a €500M capital raising in the transportation sector.',
@@ -61,7 +67,8 @@ const team = [
     descriptor: 'Operational strategy, product thinking, and systems design for founder-led businesses, with experience coordinating complex, large-scale projects across architecture, technology, and startup operations.',
     qualityBlock: "Jonas thinks and works like a builder. Trained as an architect at two of Europe's most distinguished schools, he developed the ability to hold enormous complexity (technical, spatial, human, operational) and turn it into something that actually functions. That discipline translates directly into product strategy, UX and consumer pathway design, operational build-out, and the structural thinking that fast-moving startups need but rarely have. He also brings fluency in AI application to design and operational problems, including the use of generative and agentic AI tools to accelerate product development and operational workflows. Where most operators learn by doing, Jonas learned by designing systems at scale. He then built companies on top of that foundation.",
     imgSrc: '/images/jonas-weiss.jpg',
-    imgAlt: 'Jonas Weiss',
+    img: imgJonas,
+    imgAlt: 'Jonas Weiss, Director, GoldWhite Consulting',
     bio: [
       'Jonas leads GoldWhite\'s product development, operations, and execution practice. His background spans architectural design at the highest level, co-founding and operating a technology company, and hands-on advisory work with startups and growing businesses navigating operational complexity.',
       'Trained at the Bartlett School of Architecture at UCL and Bauhaus University Weimar, Jonas developed a rigorous, systems-led approach to complexity: the ability to take a vast, multi-stakeholder challenge and design something that works at every level. That training was tested at scale on some of Europe and Asia\'s most demanding projects: the €200M Fontenay luxury hotel in Hamburg, a 700,000 sqft urban masterplan, and the Lodha Altamount skyscraper on Mumbai\'s Billionaires\' Row. These were not simply design commissions. They were operational and coordination challenges of enormous complexity: managing multidisciplinary teams, intricate technical systems, demanding clients, and tight delivery constraints across multiple geographies.',
@@ -217,8 +224,10 @@ const team = [
     .photo-col {
       min-height: 520px;
       position: relative;
-      overflow: hidden;
-      background: #1C2A45;
+      background: #0F1A2E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Bio column */
@@ -271,7 +280,7 @@ const team = [
   </section>
 
   <!-- ═══ TEAM PROFILES ═══ -->
-  {team.map(({ initials, name, role, descriptor, qualityBlock, imgSrc, imgAlt, bio, credentials, photoLeft, sectionBg }) => (
+  {team.map(({ initials, name, role, descriptor, qualityBlock, img, imgAlt, bio, credentials, photoLeft, sectionBg }) => (
     <section style={`background:${sectionBg};`}>
       <div class="team-grid">
 
@@ -279,19 +288,13 @@ const team = [
           <>
             <!-- Photo: LEFT — bio: RIGHT -->
             <div class="photo-col reveal">
-              {/* Headshot slot: drop file at /public{imgSrc}, then remove display:none and delete the placeholder div */}
-              <img
-                src={imgSrc}
+              <Image
+                src={img}
                 alt={imgAlt}
-                loading="lazy"
-                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:none;"
+                width={800}
+                height={1040}
+                style="width:50%;height:50%;object-fit:cover;object-position:center center;"
               />
-              <!-- Initials placeholder — remove when headshot is in place -->
-              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;">
-                <div style="width:104px;height:104px;border-radius:50%;border:1.5px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;">
-                  <span style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:#C9A84C;line-height:1;">{initials}</span>
-                </div>
-              </div>
             </div>
 
             <!-- Bio: RIGHT -->
@@ -360,19 +363,13 @@ const team = [
 
             <!-- Photo: RIGHT -->
             <div class="photo-col reveal reveal-delay-2">
-              {/* Headshot slot: drop file at /public{imgSrc}, then remove display:none and delete the placeholder div */}
-              <img
-                src={imgSrc}
+              <Image
+                src={img}
                 alt={imgAlt}
-                loading="lazy"
-                style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;display:none;"
+                width={800}
+                height={1040}
+                style="width:50%;height:50%;object-fit:cover;object-position:center center;"
               />
-              <!-- Initials placeholder — remove when headshot is in place -->
-              <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;">
-                <div style="width:104px;height:104px;border-radius:50%;border:1.5px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center;">
-                  <span style="font-family:'Playfair Display',serif;font-size:28px;font-weight:600;color:#C9A84C;line-height:1;">{initials}</span>
-                </div>
-              </div>
             </div>
           </>
         )}
