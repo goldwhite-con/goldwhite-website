@@ -3,7 +3,7 @@ title: "How to Raise a Seed Round for a Healthtech Startup in the UK"
 author: "David Weiss"
 date: 2026-03-29
 summary: "A practical guide covering typical round sizes, investor types, timelines, and the most common mistakes we see founders make."
-tags: ["fundraising", "healthtech", "seed round"]
+tags: ["fundraising", "healthtech", "seed round", "startups", "UK"]
 featured: true
 ---
 
